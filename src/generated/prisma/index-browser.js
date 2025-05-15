@@ -126,8 +126,27 @@ exports.Prisma.UserScalarFieldEnum = {
   name: 'name',
   email: 'email',
   imageUrl: 'imageUrl',
+  role: 'role',
+  knownTreatment: 'knownTreatment',
+  doctorDescription: 'doctorDescription',
+  doctorAge: 'doctorAge',
+  doctorPhone: 'doctorPhone',
   createdAt: 'createdAt',
   updatedAt: 'updatedAt'
+};
+
+exports.Prisma.ConsultationScalarFieldEnum = {
+  id: 'id',
+  doctorId: 'doctorId',
+  patientId: 'patientId',
+  diagnosis: 'diagnosis',
+  gender: 'gender',
+  age: 'age',
+  patientPhoneNo: 'patientPhoneNo',
+  prescription: 'prescription',
+  date: 'date',
+  stage: 'stage',
+  status: 'status'
 };
 
 exports.Prisma.SortOrder = {
@@ -144,10 +163,22 @@ exports.Prisma.NullsOrder = {
   first: 'first',
   last: 'last'
 };
+exports.Role = exports.$Enums.Role = {
+  ADMIN: 'ADMIN',
+  PATIENT: 'PATIENT',
+  DOCTOR: 'DOCTOR'
+};
 
+exports.Status = exports.$Enums.Status = {
+  COMPLETED: 'COMPLETED',
+  ACTIVE: 'ACTIVE',
+  PENDING: 'PENDING',
+  CANCELLED: 'CANCELLED'
+};
 
 exports.Prisma.ModelName = {
-  User: 'User'
+  User: 'User',
+  Consultation: 'Consultation'
 };
 
 /**
