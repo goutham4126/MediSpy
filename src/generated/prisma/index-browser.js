@@ -127,10 +127,15 @@ exports.Prisma.UserScalarFieldEnum = {
   email: 'email',
   imageUrl: 'imageUrl',
   role: 'role',
-  knownTreatment: 'knownTreatment',
-  doctorDescription: 'doctorDescription',
   doctorAge: 'doctorAge',
   doctorPhone: 'doctorPhone',
+  doctorGender: 'doctorGender',
+  doctorAddress: 'doctorAddress',
+  doctorEducation: 'doctorEducation',
+  doctorExperience: 'doctorExperience',
+  doctorSpecialization: 'doctorSpecialization',
+  doctorLicenseNo: 'doctorLicenseNo',
+  doctorHospital: 'doctorHospital',
   createdAt: 'createdAt',
   updatedAt: 'updatedAt'
 };

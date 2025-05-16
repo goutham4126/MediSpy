@@ -4,9 +4,10 @@ import {
   SidebarMenuButton,
   SidebarMenuItem,
 } from "@/components/ui/sidebar"
+import { checkUser } from "@/lib/auth";
 
-export function MainHead() {
-
+export async function MainHead() {
+  const user = await checkUser();
   return (
     <SidebarMenu>
       <SidebarMenuItem>
@@ -18,10 +19,10 @@ export function MainHead() {
                 <IoLogoDocker className="size-4" />
               </div>
               <div className="grid flex-1 text-left text-sm leading-tight">
-                <span className="truncate font-semibold">
-                  Goutham
+                <span className="truncate font-semibold mb-0.5">
+                  {user?.name}
                 </span>
-                <span className="truncate text-xs">student</span>
+                <span className="truncate text-xs text-slate-700">{user?.role}</span>
               </div>
             </SidebarMenuButton>
       </SidebarMenuItem>

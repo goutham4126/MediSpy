@@ -3,8 +3,6 @@ import "./globals.css";
 import {
   ClerkProvider,
 } from '@clerk/nextjs'
-import { AppSidebar } from "@/components/Sidebar/app-sidebar";
-import { Separator } from "@/components/ui/separator"
 import {
   SidebarInset,
   SidebarProvider,
@@ -15,6 +13,7 @@ import { SignedIn, SignedOut } from "@clerk/nextjs"
 import Homepage from "@/components/Homepage";
 import { Toaster } from "react-hot-toast";
 import Location from "@/components/Location";
+import AppSidebar from "@/components/Sidebar/app-sidebar";
 
 
 const geistSans = Geist({
@@ -39,7 +38,7 @@ export default function RootLayout({ children }) {
         <body className={`${geistSans.variable} ${geistMono.variable} antialiased`}>
           <SignedIn>
             <SidebarProvider>
-              <AppSidebar />
+              <AppSidebar/>
               <SidebarInset>
                 <header className="flex h-16 shrink-0 items-center gap-2 transition-[width,height] ease-linear group-has-[[data-collapsible=icon]]/sidebar-wrapper:h-12">
                   <div className="flex items-center justify-between gap-2 px-4 w-full">

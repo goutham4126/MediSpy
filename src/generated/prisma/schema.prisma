@@ -15,19 +15,24 @@ datasource db {
 }
 
 model User {
-  id                String         @id @default(uuid())
-  clerkUserId       String         @unique
-  name              String?
-  email             String         @unique
-  imageUrl          String?
-  role              Role           @default(PATIENT)
-  knownTreatment    String?
-  doctorDescription String?
-  doctorAge         String?
-  doctorPhone       String?
-  createdAt         DateTime       @default(now())
-  updatedAt         DateTime       @updatedAt
-  consultations     Consultation[] @relation("consultations")
+  id                   String         @id @default(uuid())
+  clerkUserId          String         @unique
+  name                 String?
+  email                String         @unique
+  imageUrl             String?
+  role                 Role           @default(PATIENT)
+  doctorAge            String?
+  doctorPhone          String?
+  doctorGender         String?
+  doctorAddress        String?
+  doctorEducation      String?
+  doctorExperience     String?
+  doctorSpecialization String?
+  doctorLicenseNo      String?
+  doctorHospital       String?
+  createdAt            DateTime       @default(now())
+  updatedAt            DateTime       @updatedAt
+  consultations        Consultation[] @relation("consultations")
 }
 
 model Consultation {

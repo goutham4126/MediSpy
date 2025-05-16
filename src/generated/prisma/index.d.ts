@@ -1039,10 +1039,15 @@ export namespace Prisma {
     email: string | null
     imageUrl: string | null
     role: $Enums.Role | null
-    knownTreatment: string | null
-    doctorDescription: string | null
     doctorAge: string | null
     doctorPhone: string | null
+    doctorGender: string | null
+    doctorAddress: string | null
+    doctorEducation: string | null
+    doctorExperience: string | null
+    doctorSpecialization: string | null
+    doctorLicenseNo: string | null
+    doctorHospital: string | null
     createdAt: Date | null
     updatedAt: Date | null
   }
@@ -1054,10 +1059,15 @@ export namespace Prisma {
     email: string | null
     imageUrl: string | null
     role: $Enums.Role | null
-    knownTreatment: string | null
-    doctorDescription: string | null
     doctorAge: string | null
     doctorPhone: string | null
+    doctorGender: string | null
+    doctorAddress: string | null
+    doctorEducation: string | null
+    doctorExperience: string | null
+    doctorSpecialization: string | null
+    doctorLicenseNo: string | null
+    doctorHospital: string | null
     createdAt: Date | null
     updatedAt: Date | null
   }
@@ -1069,10 +1079,15 @@ export namespace Prisma {
     email: number
     imageUrl: number
     role: number
-    knownTreatment: number
-    doctorDescription: number
     doctorAge: number
     doctorPhone: number
+    doctorGender: number
+    doctorAddress: number
+    doctorEducation: number
+    doctorExperience: number
+    doctorSpecialization: number
+    doctorLicenseNo: number
+    doctorHospital: number
     createdAt: number
     updatedAt: number
     _all: number
@@ -1086,10 +1101,15 @@ export namespace Prisma {
     email?: true
     imageUrl?: true
     role?: true
-    knownTreatment?: true
-    doctorDescription?: true
     doctorAge?: true
     doctorPhone?: true
+    doctorGender?: true
+    doctorAddress?: true
+    doctorEducation?: true
+    doctorExperience?: true
+    doctorSpecialization?: true
+    doctorLicenseNo?: true
+    doctorHospital?: true
     createdAt?: true
     updatedAt?: true
   }
@@ -1101,10 +1121,15 @@ export namespace Prisma {
     email?: true
     imageUrl?: true
     role?: true
-    knownTreatment?: true
-    doctorDescription?: true
     doctorAge?: true
     doctorPhone?: true
+    doctorGender?: true
+    doctorAddress?: true
+    doctorEducation?: true
+    doctorExperience?: true
+    doctorSpecialization?: true
+    doctorLicenseNo?: true
+    doctorHospital?: true
     createdAt?: true
     updatedAt?: true
   }
@@ -1116,10 +1141,15 @@ export namespace Prisma {
     email?: true
     imageUrl?: true
     role?: true
-    knownTreatment?: true
-    doctorDescription?: true
     doctorAge?: true
     doctorPhone?: true
+    doctorGender?: true
+    doctorAddress?: true
+    doctorEducation?: true
+    doctorExperience?: true
+    doctorSpecialization?: true
+    doctorLicenseNo?: true
+    doctorHospital?: true
     createdAt?: true
     updatedAt?: true
     _all?: true
@@ -1204,10 +1234,15 @@ export namespace Prisma {
     email: string
     imageUrl: string | null
     role: $Enums.Role
-    knownTreatment: string | null
-    doctorDescription: string | null
     doctorAge: string | null
     doctorPhone: string | null
+    doctorGender: string | null
+    doctorAddress: string | null
+    doctorEducation: string | null
+    doctorExperience: string | null
+    doctorSpecialization: string | null
+    doctorLicenseNo: string | null
+    doctorHospital: string | null
     createdAt: Date
     updatedAt: Date
     _count: UserCountAggregateOutputType | null
@@ -1236,10 +1271,15 @@ export namespace Prisma {
     email?: boolean
     imageUrl?: boolean
     role?: boolean
-    knownTreatment?: boolean
-    doctorDescription?: boolean
     doctorAge?: boolean
     doctorPhone?: boolean
+    doctorGender?: boolean
+    doctorAddress?: boolean
+    doctorEducation?: boolean
+    doctorExperience?: boolean
+    doctorSpecialization?: boolean
+    doctorLicenseNo?: boolean
+    doctorHospital?: boolean
     createdAt?: boolean
     updatedAt?: boolean
     consultations?: boolean | User$consultationsArgs<ExtArgs>
@@ -1253,10 +1293,15 @@ export namespace Prisma {
     email?: boolean
     imageUrl?: boolean
     role?: boolean
-    knownTreatment?: boolean
-    doctorDescription?: boolean
     doctorAge?: boolean
     doctorPhone?: boolean
+    doctorGender?: boolean
+    doctorAddress?: boolean
+    doctorEducation?: boolean
+    doctorExperience?: boolean
+    doctorSpecialization?: boolean
+    doctorLicenseNo?: boolean
+    doctorHospital?: boolean
     createdAt?: boolean
     updatedAt?: boolean
   }, ExtArgs["result"]["user"]>
@@ -1268,10 +1313,15 @@ export namespace Prisma {
     email?: boolean
     imageUrl?: boolean
     role?: boolean
-    knownTreatment?: boolean
-    doctorDescription?: boolean
     doctorAge?: boolean
     doctorPhone?: boolean
+    doctorGender?: boolean
+    doctorAddress?: boolean
+    doctorEducation?: boolean
+    doctorExperience?: boolean
+    doctorSpecialization?: boolean
+    doctorLicenseNo?: boolean
+    doctorHospital?: boolean
     createdAt?: boolean
     updatedAt?: boolean
   }, ExtArgs["result"]["user"]>
@@ -1283,15 +1333,20 @@ export namespace Prisma {
     email?: boolean
     imageUrl?: boolean
     role?: boolean
-    knownTreatment?: boolean
-    doctorDescription?: boolean
     doctorAge?: boolean
     doctorPhone?: boolean
+    doctorGender?: boolean
+    doctorAddress?: boolean
+    doctorEducation?: boolean
+    doctorExperience?: boolean
+    doctorSpecialization?: boolean
+    doctorLicenseNo?: boolean
+    doctorHospital?: boolean
     createdAt?: boolean
     updatedAt?: boolean
   }
 
-  export type UserOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "clerkUserId" | "name" | "email" | "imageUrl" | "role" | "knownTreatment" | "doctorDescription" | "doctorAge" | "doctorPhone" | "createdAt" | "updatedAt", ExtArgs["result"]["user"]>
+  export type UserOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "clerkUserId" | "name" | "email" | "imageUrl" | "role" | "doctorAge" | "doctorPhone" | "doctorGender" | "doctorAddress" | "doctorEducation" | "doctorExperience" | "doctorSpecialization" | "doctorLicenseNo" | "doctorHospital" | "createdAt" | "updatedAt", ExtArgs["result"]["user"]>
   export type UserInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     consultations?: boolean | User$consultationsArgs<ExtArgs>
     _count?: boolean | UserCountOutputTypeDefaultArgs<ExtArgs>
@@ -1311,10 +1366,15 @@ export namespace Prisma {
       email: string
       imageUrl: string | null
       role: $Enums.Role
-      knownTreatment: string | null
-      doctorDescription: string | null
       doctorAge: string | null
       doctorPhone: string | null
+      doctorGender: string | null
+      doctorAddress: string | null
+      doctorEducation: string | null
+      doctorExperience: string | null
+      doctorSpecialization: string | null
+      doctorLicenseNo: string | null
+      doctorHospital: string | null
       createdAt: Date
       updatedAt: Date
     }, ExtArgs["result"]["user"]>
@@ -1747,10 +1807,15 @@ export namespace Prisma {
     readonly email: FieldRef<"User", 'String'>
     readonly imageUrl: FieldRef<"User", 'String'>
     readonly role: FieldRef<"User", 'Role'>
-    readonly knownTreatment: FieldRef<"User", 'String'>
-    readonly doctorDescription: FieldRef<"User", 'String'>
     readonly doctorAge: FieldRef<"User", 'String'>
     readonly doctorPhone: FieldRef<"User", 'String'>
+    readonly doctorGender: FieldRef<"User", 'String'>
+    readonly doctorAddress: FieldRef<"User", 'String'>
+    readonly doctorEducation: FieldRef<"User", 'String'>
+    readonly doctorExperience: FieldRef<"User", 'String'>
+    readonly doctorSpecialization: FieldRef<"User", 'String'>
+    readonly doctorLicenseNo: FieldRef<"User", 'String'>
+    readonly doctorHospital: FieldRef<"User", 'String'>
     readonly createdAt: FieldRef<"User", 'DateTime'>
     readonly updatedAt: FieldRef<"User", 'DateTime'>
   }
@@ -3374,10 +3439,15 @@ export namespace Prisma {
     email: 'email',
     imageUrl: 'imageUrl',
     role: 'role',
-    knownTreatment: 'knownTreatment',
-    doctorDescription: 'doctorDescription',
     doctorAge: 'doctorAge',
     doctorPhone: 'doctorPhone',
+    doctorGender: 'doctorGender',
+    doctorAddress: 'doctorAddress',
+    doctorEducation: 'doctorEducation',
+    doctorExperience: 'doctorExperience',
+    doctorSpecialization: 'doctorSpecialization',
+    doctorLicenseNo: 'doctorLicenseNo',
+    doctorHospital: 'doctorHospital',
     createdAt: 'createdAt',
     updatedAt: 'updatedAt'
   };
@@ -3528,10 +3598,15 @@ export namespace Prisma {
     email?: StringFilter<"User"> | string
     imageUrl?: StringNullableFilter<"User"> | string | null
     role?: EnumRoleFilter<"User"> | $Enums.Role
-    knownTreatment?: StringNullableFilter<"User"> | string | null
-    doctorDescription?: StringNullableFilter<"User"> | string | null
     doctorAge?: StringNullableFilter<"User"> | string | null
     doctorPhone?: StringNullableFilter<"User"> | string | null
+    doctorGender?: StringNullableFilter<"User"> | string | null
+    doctorAddress?: StringNullableFilter<"User"> | string | null
+    doctorEducation?: StringNullableFilter<"User"> | string | null
+    doctorExperience?: StringNullableFilter<"User"> | string | null
+    doctorSpecialization?: StringNullableFilter<"User"> | string | null
+    doctorLicenseNo?: StringNullableFilter<"User"> | string | null
+    doctorHospital?: StringNullableFilter<"User"> | string | null
     createdAt?: DateTimeFilter<"User"> | Date | string
     updatedAt?: DateTimeFilter<"User"> | Date | string
     consultations?: ConsultationListRelationFilter
@@ -3544,10 +3619,15 @@ export namespace Prisma {
     email?: SortOrder
     imageUrl?: SortOrderInput | SortOrder
     role?: SortOrder
-    knownTreatment?: SortOrderInput | SortOrder
-    doctorDescription?: SortOrderInput | SortOrder
     doctorAge?: SortOrderInput | SortOrder
     doctorPhone?: SortOrderInput | SortOrder
+    doctorGender?: SortOrderInput | SortOrder
+    doctorAddress?: SortOrderInput | SortOrder
+    doctorEducation?: SortOrderInput | SortOrder
+    doctorExperience?: SortOrderInput | SortOrder
+    doctorSpecialization?: SortOrderInput | SortOrder
+    doctorLicenseNo?: SortOrderInput | SortOrder
+    doctorHospital?: SortOrderInput | SortOrder
     createdAt?: SortOrder
     updatedAt?: SortOrder
     consultations?: ConsultationOrderByRelationAggregateInput
@@ -3563,10 +3643,15 @@ export namespace Prisma {
     name?: StringNullableFilter<"User"> | string | null
     imageUrl?: StringNullableFilter<"User"> | string | null
     role?: EnumRoleFilter<"User"> | $Enums.Role
-    knownTreatment?: StringNullableFilter<"User"> | string | null
-    doctorDescription?: StringNullableFilter<"User"> | string | null
     doctorAge?: StringNullableFilter<"User"> | string | null
     doctorPhone?: StringNullableFilter<"User"> | string | null
+    doctorGender?: StringNullableFilter<"User"> | string | null
+    doctorAddress?: StringNullableFilter<"User"> | string | null
+    doctorEducation?: StringNullableFilter<"User"> | string | null
+    doctorExperience?: StringNullableFilter<"User"> | string | null
+    doctorSpecialization?: StringNullableFilter<"User"> | string | null
+    doctorLicenseNo?: StringNullableFilter<"User"> | string | null
+    doctorHospital?: StringNullableFilter<"User"> | string | null
     createdAt?: DateTimeFilter<"User"> | Date | string
     updatedAt?: DateTimeFilter<"User"> | Date | string
     consultations?: ConsultationListRelationFilter
@@ -3579,10 +3664,15 @@ export namespace Prisma {
     email?: SortOrder
     imageUrl?: SortOrderInput | SortOrder
     role?: SortOrder
-    knownTreatment?: SortOrderInput | SortOrder
-    doctorDescription?: SortOrderInput | SortOrder
     doctorAge?: SortOrderInput | SortOrder
     doctorPhone?: SortOrderInput | SortOrder
+    doctorGender?: SortOrderInput | SortOrder
+    doctorAddress?: SortOrderInput | SortOrder
+    doctorEducation?: SortOrderInput | SortOrder
+    doctorExperience?: SortOrderInput | SortOrder
+    doctorSpecialization?: SortOrderInput | SortOrder
+    doctorLicenseNo?: SortOrderInput | SortOrder
+    doctorHospital?: SortOrderInput | SortOrder
     createdAt?: SortOrder
     updatedAt?: SortOrder
     _count?: UserCountOrderByAggregateInput
@@ -3600,10 +3690,15 @@ export namespace Prisma {
     email?: StringWithAggregatesFilter<"User"> | string
     imageUrl?: StringNullableWithAggregatesFilter<"User"> | string | null
     role?: EnumRoleWithAggregatesFilter<"User"> | $Enums.Role
-    knownTreatment?: StringNullableWithAggregatesFilter<"User"> | string | null
-    doctorDescription?: StringNullableWithAggregatesFilter<"User"> | string | null
     doctorAge?: StringNullableWithAggregatesFilter<"User"> | string | null
     doctorPhone?: StringNullableWithAggregatesFilter<"User"> | string | null
+    doctorGender?: StringNullableWithAggregatesFilter<"User"> | string | null
+    doctorAddress?: StringNullableWithAggregatesFilter<"User"> | string | null
+    doctorEducation?: StringNullableWithAggregatesFilter<"User"> | string | null
+    doctorExperience?: StringNullableWithAggregatesFilter<"User"> | string | null
+    doctorSpecialization?: StringNullableWithAggregatesFilter<"User"> | string | null
+    doctorLicenseNo?: StringNullableWithAggregatesFilter<"User"> | string | null
+    doctorHospital?: StringNullableWithAggregatesFilter<"User"> | string | null
     createdAt?: DateTimeWithAggregatesFilter<"User"> | Date | string
     updatedAt?: DateTimeWithAggregatesFilter<"User"> | Date | string
   }
@@ -3702,10 +3797,15 @@ export namespace Prisma {
     email: string
     imageUrl?: string | null
     role?: $Enums.Role
-    knownTreatment?: string | null
-    doctorDescription?: string | null
     doctorAge?: string | null
     doctorPhone?: string | null
+    doctorGender?: string | null
+    doctorAddress?: string | null
+    doctorEducation?: string | null
+    doctorExperience?: string | null
+    doctorSpecialization?: string | null
+    doctorLicenseNo?: string | null
+    doctorHospital?: string | null
     createdAt?: Date | string
     updatedAt?: Date | string
     consultations?: ConsultationCreateNestedManyWithoutPatientInput
@@ -3718,10 +3818,15 @@ export namespace Prisma {
     email: string
     imageUrl?: string | null
     role?: $Enums.Role
-    knownTreatment?: string | null
-    doctorDescription?: string | null
     doctorAge?: string | null
     doctorPhone?: string | null
+    doctorGender?: string | null
+    doctorAddress?: string | null
+    doctorEducation?: string | null
+    doctorExperience?: string | null
+    doctorSpecialization?: string | null
+    doctorLicenseNo?: string | null
+    doctorHospital?: string | null
     createdAt?: Date | string
     updatedAt?: Date | string
     consultations?: ConsultationUncheckedCreateNestedManyWithoutPatientInput
@@ -3734,10 +3839,15 @@ export namespace Prisma {
     email?: StringFieldUpdateOperationsInput | string
     imageUrl?: NullableStringFieldUpdateOperationsInput | string | null
     role?: EnumRoleFieldUpdateOperationsInput | $Enums.Role
-    knownTreatment?: NullableStringFieldUpdateOperationsInput | string | null
-    doctorDescription?: NullableStringFieldUpdateOperationsInput | string | null
     doctorAge?: NullableStringFieldUpdateOperationsInput | string | null
     doctorPhone?: NullableStringFieldUpdateOperationsInput | string | null
+    doctorGender?: NullableStringFieldUpdateOperationsInput | string | null
+    doctorAddress?: NullableStringFieldUpdateOperationsInput | string | null
+    doctorEducation?: NullableStringFieldUpdateOperationsInput | string | null
+    doctorExperience?: NullableStringFieldUpdateOperationsInput | string | null
+    doctorSpecialization?: NullableStringFieldUpdateOperationsInput | string | null
+    doctorLicenseNo?: NullableStringFieldUpdateOperationsInput | string | null
+    doctorHospital?: NullableStringFieldUpdateOperationsInput | string | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     consultations?: ConsultationUpdateManyWithoutPatientNestedInput
@@ -3750,10 +3860,15 @@ export namespace Prisma {
     email?: StringFieldUpdateOperationsInput | string
     imageUrl?: NullableStringFieldUpdateOperationsInput | string | null
     role?: EnumRoleFieldUpdateOperationsInput | $Enums.Role
-    knownTreatment?: NullableStringFieldUpdateOperationsInput | string | null
-    doctorDescription?: NullableStringFieldUpdateOperationsInput | string | null
     doctorAge?: NullableStringFieldUpdateOperationsInput | string | null
     doctorPhone?: NullableStringFieldUpdateOperationsInput | string | null
+    doctorGender?: NullableStringFieldUpdateOperationsInput | string | null
+    doctorAddress?: NullableStringFieldUpdateOperationsInput | string | null
+    doctorEducation?: NullableStringFieldUpdateOperationsInput | string | null
+    doctorExperience?: NullableStringFieldUpdateOperationsInput | string | null
+    doctorSpecialization?: NullableStringFieldUpdateOperationsInput | string | null
+    doctorLicenseNo?: NullableStringFieldUpdateOperationsInput | string | null
+    doctorHospital?: NullableStringFieldUpdateOperationsInput | string | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     consultations?: ConsultationUncheckedUpdateManyWithoutPatientNestedInput
@@ -3766,10 +3881,15 @@ export namespace Prisma {
     email: string
     imageUrl?: string | null
     role?: $Enums.Role
-    knownTreatment?: string | null
-    doctorDescription?: string | null
     doctorAge?: string | null
     doctorPhone?: string | null
+    doctorGender?: string | null
+    doctorAddress?: string | null
+    doctorEducation?: string | null
+    doctorExperience?: string | null
+    doctorSpecialization?: string | null
+    doctorLicenseNo?: string | null
+    doctorHospital?: string | null
     createdAt?: Date | string
     updatedAt?: Date | string
   }
@@ -3781,10 +3901,15 @@ export namespace Prisma {
     email?: StringFieldUpdateOperationsInput | string
     imageUrl?: NullableStringFieldUpdateOperationsInput | string | null
     role?: EnumRoleFieldUpdateOperationsInput | $Enums.Role
-    knownTreatment?: NullableStringFieldUpdateOperationsInput | string | null
-    doctorDescription?: NullableStringFieldUpdateOperationsInput | string | null
     doctorAge?: NullableStringFieldUpdateOperationsInput | string | null
     doctorPhone?: NullableStringFieldUpdateOperationsInput | string | null
+    doctorGender?: NullableStringFieldUpdateOperationsInput | string | null
+    doctorAddress?: NullableStringFieldUpdateOperationsInput | string | null
+    doctorEducation?: NullableStringFieldUpdateOperationsInput | string | null
+    doctorExperience?: NullableStringFieldUpdateOperationsInput | string | null
+    doctorSpecialization?: NullableStringFieldUpdateOperationsInput | string | null
+    doctorLicenseNo?: NullableStringFieldUpdateOperationsInput | string | null
+    doctorHospital?: NullableStringFieldUpdateOperationsInput | string | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
   }
@@ -3796,10 +3921,15 @@ export namespace Prisma {
     email?: StringFieldUpdateOperationsInput | string
     imageUrl?: NullableStringFieldUpdateOperationsInput | string | null
     role?: EnumRoleFieldUpdateOperationsInput | $Enums.Role
-    knownTreatment?: NullableStringFieldUpdateOperationsInput | string | null
-    doctorDescription?: NullableStringFieldUpdateOperationsInput | string | null
     doctorAge?: NullableStringFieldUpdateOperationsInput | string | null
     doctorPhone?: NullableStringFieldUpdateOperationsInput | string | null
+    doctorGender?: NullableStringFieldUpdateOperationsInput | string | null
+    doctorAddress?: NullableStringFieldUpdateOperationsInput | string | null
+    doctorEducation?: NullableStringFieldUpdateOperationsInput | string | null
+    doctorExperience?: NullableStringFieldUpdateOperationsInput | string | null
+    doctorSpecialization?: NullableStringFieldUpdateOperationsInput | string | null
+    doctorLicenseNo?: NullableStringFieldUpdateOperationsInput | string | null
+    doctorHospital?: NullableStringFieldUpdateOperationsInput | string | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
   }
@@ -3971,10 +4101,15 @@ export namespace Prisma {
     email?: SortOrder
     imageUrl?: SortOrder
     role?: SortOrder
-    knownTreatment?: SortOrder
-    doctorDescription?: SortOrder
     doctorAge?: SortOrder
     doctorPhone?: SortOrder
+    doctorGender?: SortOrder
+    doctorAddress?: SortOrder
+    doctorEducation?: SortOrder
+    doctorExperience?: SortOrder
+    doctorSpecialization?: SortOrder
+    doctorLicenseNo?: SortOrder
+    doctorHospital?: SortOrder
     createdAt?: SortOrder
     updatedAt?: SortOrder
   }
@@ -3986,10 +4121,15 @@ export namespace Prisma {
     email?: SortOrder
     imageUrl?: SortOrder
     role?: SortOrder
-    knownTreatment?: SortOrder
-    doctorDescription?: SortOrder
     doctorAge?: SortOrder
     doctorPhone?: SortOrder
+    doctorGender?: SortOrder
+    doctorAddress?: SortOrder
+    doctorEducation?: SortOrder
+    doctorExperience?: SortOrder
+    doctorSpecialization?: SortOrder
+    doctorLicenseNo?: SortOrder
+    doctorHospital?: SortOrder
     createdAt?: SortOrder
     updatedAt?: SortOrder
   }
@@ -4001,10 +4141,15 @@ export namespace Prisma {
     email?: SortOrder
     imageUrl?: SortOrder
     role?: SortOrder
-    knownTreatment?: SortOrder
-    doctorDescription?: SortOrder
     doctorAge?: SortOrder
     doctorPhone?: SortOrder
+    doctorGender?: SortOrder
+    doctorAddress?: SortOrder
+    doctorEducation?: SortOrder
+    doctorExperience?: SortOrder
+    doctorSpecialization?: SortOrder
+    doctorLicenseNo?: SortOrder
+    doctorHospital?: SortOrder
     createdAt?: SortOrder
     updatedAt?: SortOrder
   }
@@ -4498,10 +4643,15 @@ export namespace Prisma {
     email: string
     imageUrl?: string | null
     role?: $Enums.Role
-    knownTreatment?: string | null
-    doctorDescription?: string | null
     doctorAge?: string | null
     doctorPhone?: string | null
+    doctorGender?: string | null
+    doctorAddress?: string | null
+    doctorEducation?: string | null
+    doctorExperience?: string | null
+    doctorSpecialization?: string | null
+    doctorLicenseNo?: string | null
+    doctorHospital?: string | null
     createdAt?: Date | string
     updatedAt?: Date | string
   }
@@ -4513,10 +4663,15 @@ export namespace Prisma {
     email: string
     imageUrl?: string | null
     role?: $Enums.Role
-    knownTreatment?: string | null
-    doctorDescription?: string | null
     doctorAge?: string | null
     doctorPhone?: string | null
+    doctorGender?: string | null
+    doctorAddress?: string | null
+    doctorEducation?: string | null
+    doctorExperience?: string | null
+    doctorSpecialization?: string | null
+    doctorLicenseNo?: string | null
+    doctorHospital?: string | null
     createdAt?: Date | string
     updatedAt?: Date | string
   }
@@ -4544,10 +4699,15 @@ export namespace Prisma {
     email?: StringFieldUpdateOperationsInput | string
     imageUrl?: NullableStringFieldUpdateOperationsInput | string | null
     role?: EnumRoleFieldUpdateOperationsInput | $Enums.Role
-    knownTreatment?: NullableStringFieldUpdateOperationsInput | string | null
-    doctorDescription?: NullableStringFieldUpdateOperationsInput | string | null
     doctorAge?: NullableStringFieldUpdateOperationsInput | string | null
     doctorPhone?: NullableStringFieldUpdateOperationsInput | string | null
+    doctorGender?: NullableStringFieldUpdateOperationsInput | string | null
+    doctorAddress?: NullableStringFieldUpdateOperationsInput | string | null
+    doctorEducation?: NullableStringFieldUpdateOperationsInput | string | null
+    doctorExperience?: NullableStringFieldUpdateOperationsInput | string | null
+    doctorSpecialization?: NullableStringFieldUpdateOperationsInput | string | null
+    doctorLicenseNo?: NullableStringFieldUpdateOperationsInput | string | null
+    doctorHospital?: NullableStringFieldUpdateOperationsInput | string | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
   }
@@ -4559,10 +4719,15 @@ export namespace Prisma {
     email?: StringFieldUpdateOperationsInput | string
     imageUrl?: NullableStringFieldUpdateOperationsInput | string | null
     role?: EnumRoleFieldUpdateOperationsInput | $Enums.Role
-    knownTreatment?: NullableStringFieldUpdateOperationsInput | string | null
-    doctorDescription?: NullableStringFieldUpdateOperationsInput | string | null
     doctorAge?: NullableStringFieldUpdateOperationsInput | string | null
     doctorPhone?: NullableStringFieldUpdateOperationsInput | string | null
+    doctorGender?: NullableStringFieldUpdateOperationsInput | string | null
+    doctorAddress?: NullableStringFieldUpdateOperationsInput | string | null
+    doctorEducation?: NullableStringFieldUpdateOperationsInput | string | null
+    doctorExperience?: NullableStringFieldUpdateOperationsInput | string | null
+    doctorSpecialization?: NullableStringFieldUpdateOperationsInput | string | null
+    doctorLicenseNo?: NullableStringFieldUpdateOperationsInput | string | null
+    doctorHospital?: NullableStringFieldUpdateOperationsInput | string | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
   }
