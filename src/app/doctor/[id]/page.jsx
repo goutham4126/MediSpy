@@ -1,15 +1,17 @@
-"use client";
-import { usePathname } from "next/navigation";
+import DoctorDetails from "@/components/DoctorDetails";
+import getUserById from "@/actions/getUserById";
 
-function Page() {
-  const pathname = usePathname();
-  const id = pathname.split("/").pop();
+export default async function DoctorPage({ params }) {
+  const {id} = await params;
+  const user = await getUserById({ id });
 
-  return( 
+  if (!user) {
+    return <div>Doctor not found</div>;
+  }
+
+  return (
     <div>
-      {id}
+      <DoctorDetails user={user} />
     </div>
-);
+  );
 }
-
-export default Page;

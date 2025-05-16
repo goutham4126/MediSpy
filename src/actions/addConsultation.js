@@ -1,9 +1,9 @@
 "use server";
 
 import { db } from "@/lib/database";
-import { checkUser } from "@/lib/checkUser";
+import { checkUser } from "@/lib/auth";
 
-async function AddConsultation({data,id})
+async function AddConsultation({data})
 {
     const user=await checkUser();
     if(!user)
@@ -11,18 +11,19 @@ async function AddConsultation({data,id})
         return {error:"Please login to find doctors"};
     }
     try{
-        const { symptom, age, gender, mobile, date,stage } = data;
+        const { diagnosis,age, gender, patientPhoneNo, date,stage,doctorId } = data;
         const ageInt = parseInt(age, 10);
         const dateTime = new Date(date);
         const consultation= await db.consultation.create({
             data:{
-                doctorId: id,
+                doctorId: doctorId, 
                 patientId:user.id,
-                diagnosis: symptom,
-                gender,
+                diagnosis: diagnosis,
+                prescription: "",
+                gender:gender,
                 age:ageInt,
-                patientPhoneNo: mobile,
-                date:dateTime,
+                patientPhoneNo: patientPhoneNo,
+                date: dateTime,
                 status:"PENDING",
                 stage:stage
             }
