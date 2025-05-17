@@ -49,6 +49,10 @@ const data = {
           title: "Symptom Checker",
           url: "/symptom-checker",
         },
+        {
+          title:"Profile",
+          url: "/doctor-profile",
+        }
       ],
     },
   ],

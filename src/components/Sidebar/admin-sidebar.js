@@ -12,7 +12,6 @@ import {
   SidebarHeader,
   SidebarRail,
 } from "@/components/ui/sidebar"
-import { NavSingle } from "./nav-single"
 import { NavGroup } from "./nav-group"
 
 const data = {
@@ -48,7 +47,6 @@ export async function AdminSidebar({ ...props }) {
       <SidebarContent>
         <NavGroup items={data.single}/>
         <NavMain items={data.navMain} /> 
-        <NavSingle item={data.billing} />
       </SidebarContent>
       <SidebarFooter>
         <NavUser user={user}/>

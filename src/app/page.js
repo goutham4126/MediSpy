@@ -1,56 +1,30 @@
-"use client";
+import AdminDashboard from "@/components/dashboard/AdminDashboard";
+import DoctorDashboard from "@/components/dashboard/DoctorDashboard";
+import PatientDashboard from "@/components/dashboard/PatientDashboard";
+import { checkUser } from "@/lib/auth";
+import getPatientConsultations from "@/actions/getPatientConsultations";
+import getDoctorConsultations from "@/actions/getDoctorConsultations";
+import getAllConsultations from "@/actions/getAllConsultations";
+import getAllDoctors from "@/actions/getAllDoctors";
 
-import { Areachart } from "@/components/charts/Areachart";
-import {
-  Card,
-  CardContent,
-  CardDescription,
-  CardHeader,
-  CardTitle,
-} from "@/components/ui/card";
-
-export default function Home() {
+export default async function Home() {
+  const user = await checkUser();
+  const consultations = await getAllConsultations();
+  const doctors = await getAllDoctors();
+  const patientConsultations = await getPatientConsultations();
+  const doctorConsultations = await getDoctorConsultations();
 
   return (
     <div>
-        <div className="flex flex-col md:flex-row gap-4">
-          <Card className="w-full md:w-1/3">
-            <CardHeader>
-              <CardTitle>Consultations</CardTitle>
-              <CardDescription>
-                Total no of Consultations
-              </CardDescription>
-            </CardHeader>
-            <CardContent>
-              <p className="text-lg font-bold text-green-600">5</p>
-            </CardContent>
-          </Card>
-          <Card className="w-full md:w-1/3">
-            <CardHeader>
-              <CardTitle>Health Index</CardTitle>
-              <CardDescription>
-                Your current health condition
-              </CardDescription>
-            </CardHeader>
-            <CardContent>
-              <p className="text-lg font-bold text-red-600">Normal</p>
-            </CardContent>
-          </Card>
-          <Card className="w-full md:w-1/3">
-            <CardHeader>
-              <CardTitle>Doctors</CardTitle>
-              <CardDescription>
-                Total no of Doctors available
-              </CardDescription>
-            </CardHeader>
-            <CardContent>
-              <p className="text-lg font-bold text-blue-600">30</p>
-            </CardContent>
-          </Card>
-        </div>
-        <div className="my-4">
-          <Areachart/>
-        </div>
+        {
+          user.role === "ADMIN" ? (
+            <AdminDashboard doctors={doctors} consultations={consultations}/>
+          ) : user.role === "DOCTOR" ? (
+            <DoctorDashboard doctors={doctors} consultations={doctorConsultations}/>
+          ) : (
+            <PatientDashboard doctors={doctors} consultations={patientConsultations}/>
+          )
+        }
     </div>
   );
 }

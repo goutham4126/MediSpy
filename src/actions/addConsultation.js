@@ -8,7 +8,7 @@ async function AddConsultation({data})
     const user=await checkUser();
     if(!user)
     {
-        return {error:"Please login to find doctors"};
+        return null;
     }
     try{
         const { diagnosis,age, gender, patientPhoneNo, date,stage,doctorId } = data;

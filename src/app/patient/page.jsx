@@ -8,18 +8,36 @@ import {
 } from "@/components/ui/card"
 import Link from "next/link"
 import { Separator } from "@/components/ui/separator"
+import { FaRegAddressBook } from "react-icons/fa";
+import { Textarea } from "@/components/ui/textarea";
 import getPatientConsultations from "@/actions/getPatientConsultations"
 import {
   Table,
   TableBody,
-  TableCaption,
   TableCell,
   TableHead,
   TableHeader,
   TableRow,
 } from "@/components/ui/table"
+import {
+  Dialog,
+  DialogClose,
+  DialogContent,
+  DialogDescription,
+  DialogFooter,
+  DialogHeader,
+  DialogTitle,
+  DialogTrigger,
+} from "@/components/ui/dialog"
+import { Input } from "@/components/ui/input"
+import { Label } from "@/components/ui/label"
+import { Button } from "@/components/ui/button"
+import { checkUser } from "@/lib/auth";
+import CopyText from "@/components/CopyText";
+
 
 async function page() {
+  const user = await checkUser();
   const doctors = await getAllDoctors()
   const patientConsultations = await getPatientConsultations()
 
@@ -74,7 +92,7 @@ async function page() {
           </p>
         </div>
         
-        <div className="border border-gray-200 rounded-md overflow-hidden">
+        <div className="border border-gray-200 rounded-md overflow-hidden mb-5">
           <Table className="min-w-full">
             <TableHeader className="bg-gray-50">
               <TableRow>
@@ -82,10 +100,16 @@ async function page() {
                   Doctor
                 </TableHead>
                 <TableHead className="font-medium text-gray-700 border-r border-gray-200 px-4 py-3">
-                  Patient
+                  Date
                 </TableHead>
                 <TableHead className="font-medium text-gray-700 border-r border-gray-200 px-4 py-3">
                   Diagnosis
+                </TableHead>
+                <TableHead className="font-medium text-gray-700 border-r border-gray-200 px-4 py-3">
+                  Prescription
+                </TableHead>
+                <TableHead className="font-medium text-gray-700 border-r border-gray-200 px-4 py-3">
+                  Video url
                 </TableHead>
                 <TableHead className="font-medium text-gray-700 text-right px-4 py-3">
                   Status
@@ -102,10 +126,90 @@ async function page() {
                     {consultation.doctorId}
                   </TableCell>
                   <TableCell className="border-r border-gray-200 px-4 py-3">
-                    {consultation.patientId}
+                    {consultation.date.toLocaleDateString("en-US", {
+                      year: "numeric",
+                      month: "2-digit",
+                      day: "2-digit",
+                    })}
                   </TableCell>
                   <TableCell className="border-r border-gray-200 px-4 py-3">
                     {consultation.diagnosis || "Not specified"}
+                  </TableCell>
+                  <TableCell className="border-r border-gray-200 px-4 py-3">
+                    <Dialog>
+                      <DialogTrigger asChild className="flex items-center justify-center w-full">
+                        <FaRegAddressBook className="cursor-pointer h-6 w-6"/>
+                      </DialogTrigger>
+                      <DialogContent className="sm:max-w-md">
+                        <DialogHeader>
+                          <DialogTitle>Strictly follow the prescription</DialogTitle>
+                        </DialogHeader>
+                        <div className="flex items-center space-x-2">
+                          <div className="grid flex-1 gap-2">
+                            {
+                              user?.role === "PATIENT" && (
+                                <Textarea
+                                  id="prescription"
+                                  defaultValue={consultation.prescription || "Not specified"}
+                                  readOnly
+                                />
+                              )
+                            }
+                            {
+                              user?.role === "DOCTOR" && (
+                                <Textarea
+                                  id="prescription"
+                                  defaultValue={consultation.prescription || "Not specified"}
+                                />
+                              )
+                            }
+                          </div>
+                        </div>
+                        <DialogFooter className="sm:justify-start">
+                          <DialogClose asChild>
+                            <Button type="button" variant="secondary">
+                              Close
+                            </Button>
+                          </DialogClose>
+                        </DialogFooter>
+                      </DialogContent>
+                    </Dialog>
+                  </TableCell>
+
+                  <TableCell className="border-r border-gray-200 px-4 py-3">
+                    <Dialog>
+                      <DialogTrigger asChild>
+                        <Button variant="outline">Join</Button>
+                      </DialogTrigger>
+                      <DialogContent className="sm:max-w-md">
+                        <DialogHeader>
+                          <DialogTitle>Join link</DialogTitle>
+                          <DialogDescription>
+                            Copy the link below and join the consultation
+                          </DialogDescription>
+                        </DialogHeader>
+                        <div className="flex items-center space-x-2">
+                          <div className="grid flex-1 gap-2">
+                            <Label htmlFor="link" className="sr-only">
+                              Link
+                            </Label>
+                            <Input
+                              id="link"
+                              defaultValue={consultation.videoUrl || "Not specified"}
+                              readOnly
+                            />
+                          </div>
+                          <CopyText text={consultation.videoUrl || "Not specified"} />
+                        </div>
+                        <DialogFooter className="sm:justify-start">
+                          <DialogClose asChild>
+                            <Button type="button" variant="secondary">
+                              Close
+                            </Button>
+                          </DialogClose>
+                        </DialogFooter>
+                      </DialogContent>
+                    </Dialog>
                   </TableCell>
                   <TableCell className="text-right px-4 py-3">
                     <span className={`inline-flex items-center px-3 py-1 rounded-full text-xs font-medium ${
