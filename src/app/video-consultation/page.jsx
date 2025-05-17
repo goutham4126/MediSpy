@@ -1,16 +1,30 @@
-import React from 'react'
+import { checkUser } from "@/lib/auth"
 
-function page() {
+async function page() {
+  const user = await checkUser();
   return (
     <div className="w-full h-screen">
-      <iframe
-        src="https://healcare-videochat.vercel.app/create"
-        width="100%"
-        height="100%"
-        allow="camera; microphone; fullscreen"
-        allowFullScreen
-        className="border-none"
-      />
+      {
+        user?.role === "doctor" ? (
+          <iframe
+            src="https://healcare-videochat.vercel.app/create"
+            width="100%"
+            height="100%"
+            allow="camera; microphone; fullscreen"
+            allowFullScreen
+            className="border-none"
+          />
+        ) :(
+          <iframe
+            src="https://healcare-videochat.vercel.app/join"
+            width="100%"
+            height="100%"
+            allow="camera; microphone; fullscreen"
+            allowFullScreen
+            className="border-none"
+          />
+        )
+      }
     </div>
   )
 }

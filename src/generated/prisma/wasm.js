@@ -149,6 +149,7 @@ exports.Prisma.ConsultationScalarFieldEnum = {
   age: 'age',
   patientPhoneNo: 'patientPhoneNo',
   prescription: 'prescription',
+  videoUrl: 'videoUrl',
   date: 'date',
   stage: 'stage',
   status: 'status'

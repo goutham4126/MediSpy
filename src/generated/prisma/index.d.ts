@@ -2277,6 +2277,7 @@ export namespace Prisma {
     age: number | null
     patientPhoneNo: string | null
     prescription: string | null
+    videoUrl: string | null
     date: Date | null
     stage: string | null
     status: $Enums.Status | null
@@ -2291,6 +2292,7 @@ export namespace Prisma {
     age: number | null
     patientPhoneNo: string | null
     prescription: string | null
+    videoUrl: string | null
     date: Date | null
     stage: string | null
     status: $Enums.Status | null
@@ -2305,6 +2307,7 @@ export namespace Prisma {
     age: number
     patientPhoneNo: number
     prescription: number
+    videoUrl: number
     date: number
     stage: number
     status: number
@@ -2329,6 +2332,7 @@ export namespace Prisma {
     age?: true
     patientPhoneNo?: true
     prescription?: true
+    videoUrl?: true
     date?: true
     stage?: true
     status?: true
@@ -2343,6 +2347,7 @@ export namespace Prisma {
     age?: true
     patientPhoneNo?: true
     prescription?: true
+    videoUrl?: true
     date?: true
     stage?: true
     status?: true
@@ -2357,6 +2362,7 @@ export namespace Prisma {
     age?: true
     patientPhoneNo?: true
     prescription?: true
+    videoUrl?: true
     date?: true
     stage?: true
     status?: true
@@ -2458,6 +2464,7 @@ export namespace Prisma {
     age: number
     patientPhoneNo: string
     prescription: string | null
+    videoUrl: string | null
     date: Date
     stage: string
     status: $Enums.Status
@@ -2491,6 +2498,7 @@ export namespace Prisma {
     age?: boolean
     patientPhoneNo?: boolean
     prescription?: boolean
+    videoUrl?: boolean
     date?: boolean
     stage?: boolean
     status?: boolean
@@ -2506,6 +2514,7 @@ export namespace Prisma {
     age?: boolean
     patientPhoneNo?: boolean
     prescription?: boolean
+    videoUrl?: boolean
     date?: boolean
     stage?: boolean
     status?: boolean
@@ -2521,6 +2530,7 @@ export namespace Prisma {
     age?: boolean
     patientPhoneNo?: boolean
     prescription?: boolean
+    videoUrl?: boolean
     date?: boolean
     stage?: boolean
     status?: boolean
@@ -2536,12 +2546,13 @@ export namespace Prisma {
     age?: boolean
     patientPhoneNo?: boolean
     prescription?: boolean
+    videoUrl?: boolean
     date?: boolean
     stage?: boolean
     status?: boolean
   }
 
-  export type ConsultationOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "doctorId" | "patientId" | "diagnosis" | "gender" | "age" | "patientPhoneNo" | "prescription" | "date" | "stage" | "status", ExtArgs["result"]["consultation"]>
+  export type ConsultationOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "doctorId" | "patientId" | "diagnosis" | "gender" | "age" | "patientPhoneNo" | "prescription" | "videoUrl" | "date" | "stage" | "status", ExtArgs["result"]["consultation"]>
   export type ConsultationInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     patient?: boolean | UserDefaultArgs<ExtArgs>
   }
@@ -2566,6 +2577,7 @@ export namespace Prisma {
       age: number
       patientPhoneNo: string
       prescription: string | null
+      videoUrl: string | null
       date: Date
       stage: string
       status: $Enums.Status
@@ -3001,6 +3013,7 @@ export namespace Prisma {
     readonly age: FieldRef<"Consultation", 'Int'>
     readonly patientPhoneNo: FieldRef<"Consultation", 'String'>
     readonly prescription: FieldRef<"Consultation", 'String'>
+    readonly videoUrl: FieldRef<"Consultation", 'String'>
     readonly date: FieldRef<"Consultation", 'DateTime'>
     readonly stage: FieldRef<"Consultation", 'String'>
     readonly status: FieldRef<"Consultation", 'Status'>
@@ -3464,6 +3477,7 @@ export namespace Prisma {
     age: 'age',
     patientPhoneNo: 'patientPhoneNo',
     prescription: 'prescription',
+    videoUrl: 'videoUrl',
     date: 'date',
     stage: 'stage',
     status: 'status'
@@ -3715,6 +3729,7 @@ export namespace Prisma {
     age?: IntFilter<"Consultation"> | number
     patientPhoneNo?: StringFilter<"Consultation"> | string
     prescription?: StringNullableFilter<"Consultation"> | string | null
+    videoUrl?: StringNullableFilter<"Consultation"> | string | null
     date?: DateTimeFilter<"Consultation"> | Date | string
     stage?: StringFilter<"Consultation"> | string
     status?: EnumStatusFilter<"Consultation"> | $Enums.Status
@@ -3730,6 +3745,7 @@ export namespace Prisma {
     age?: SortOrder
     patientPhoneNo?: SortOrder
     prescription?: SortOrderInput | SortOrder
+    videoUrl?: SortOrderInput | SortOrder
     date?: SortOrder
     stage?: SortOrder
     status?: SortOrder
@@ -3748,6 +3764,7 @@ export namespace Prisma {
     age?: IntFilter<"Consultation"> | number
     patientPhoneNo?: StringFilter<"Consultation"> | string
     prescription?: StringNullableFilter<"Consultation"> | string | null
+    videoUrl?: StringNullableFilter<"Consultation"> | string | null
     date?: DateTimeFilter<"Consultation"> | Date | string
     stage?: StringFilter<"Consultation"> | string
     status?: EnumStatusFilter<"Consultation"> | $Enums.Status
@@ -3763,6 +3780,7 @@ export namespace Prisma {
     age?: SortOrder
     patientPhoneNo?: SortOrder
     prescription?: SortOrderInput | SortOrder
+    videoUrl?: SortOrderInput | SortOrder
     date?: SortOrder
     stage?: SortOrder
     status?: SortOrder
@@ -3785,6 +3803,7 @@ export namespace Prisma {
     age?: IntWithAggregatesFilter<"Consultation"> | number
     patientPhoneNo?: StringWithAggregatesFilter<"Consultation"> | string
     prescription?: StringNullableWithAggregatesFilter<"Consultation"> | string | null
+    videoUrl?: StringNullableWithAggregatesFilter<"Consultation"> | string | null
     date?: DateTimeWithAggregatesFilter<"Consultation"> | Date | string
     stage?: StringWithAggregatesFilter<"Consultation"> | string
     status?: EnumStatusWithAggregatesFilter<"Consultation"> | $Enums.Status
@@ -3942,6 +3961,7 @@ export namespace Prisma {
     age: number
     patientPhoneNo: string
     prescription?: string | null
+    videoUrl?: string | null
     date: Date | string
     stage: string
     status: $Enums.Status
@@ -3957,6 +3977,7 @@ export namespace Prisma {
     age: number
     patientPhoneNo: string
     prescription?: string | null
+    videoUrl?: string | null
     date: Date | string
     stage: string
     status: $Enums.Status
@@ -3970,6 +3991,7 @@ export namespace Prisma {
     age?: IntFieldUpdateOperationsInput | number
     patientPhoneNo?: StringFieldUpdateOperationsInput | string
     prescription?: NullableStringFieldUpdateOperationsInput | string | null
+    videoUrl?: NullableStringFieldUpdateOperationsInput | string | null
     date?: DateTimeFieldUpdateOperationsInput | Date | string
     stage?: StringFieldUpdateOperationsInput | string
     status?: EnumStatusFieldUpdateOperationsInput | $Enums.Status
@@ -3985,6 +4007,7 @@ export namespace Prisma {
     age?: IntFieldUpdateOperationsInput | number
     patientPhoneNo?: StringFieldUpdateOperationsInput | string
     prescription?: NullableStringFieldUpdateOperationsInput | string | null
+    videoUrl?: NullableStringFieldUpdateOperationsInput | string | null
     date?: DateTimeFieldUpdateOperationsInput | Date | string
     stage?: StringFieldUpdateOperationsInput | string
     status?: EnumStatusFieldUpdateOperationsInput | $Enums.Status
@@ -3999,6 +4022,7 @@ export namespace Prisma {
     age: number
     patientPhoneNo: string
     prescription?: string | null
+    videoUrl?: string | null
     date: Date | string
     stage: string
     status: $Enums.Status
@@ -4012,6 +4036,7 @@ export namespace Prisma {
     age?: IntFieldUpdateOperationsInput | number
     patientPhoneNo?: StringFieldUpdateOperationsInput | string
     prescription?: NullableStringFieldUpdateOperationsInput | string | null
+    videoUrl?: NullableStringFieldUpdateOperationsInput | string | null
     date?: DateTimeFieldUpdateOperationsInput | Date | string
     stage?: StringFieldUpdateOperationsInput | string
     status?: EnumStatusFieldUpdateOperationsInput | $Enums.Status
@@ -4026,6 +4051,7 @@ export namespace Prisma {
     age?: IntFieldUpdateOperationsInput | number
     patientPhoneNo?: StringFieldUpdateOperationsInput | string
     prescription?: NullableStringFieldUpdateOperationsInput | string | null
+    videoUrl?: NullableStringFieldUpdateOperationsInput | string | null
     date?: DateTimeFieldUpdateOperationsInput | Date | string
     stage?: StringFieldUpdateOperationsInput | string
     status?: EnumStatusFieldUpdateOperationsInput | $Enums.Status
@@ -4246,6 +4272,7 @@ export namespace Prisma {
     age?: SortOrder
     patientPhoneNo?: SortOrder
     prescription?: SortOrder
+    videoUrl?: SortOrder
     date?: SortOrder
     stage?: SortOrder
     status?: SortOrder
@@ -4264,6 +4291,7 @@ export namespace Prisma {
     age?: SortOrder
     patientPhoneNo?: SortOrder
     prescription?: SortOrder
+    videoUrl?: SortOrder
     date?: SortOrder
     stage?: SortOrder
     status?: SortOrder
@@ -4278,6 +4306,7 @@ export namespace Prisma {
     age?: SortOrder
     patientPhoneNo?: SortOrder
     prescription?: SortOrder
+    videoUrl?: SortOrder
     date?: SortOrder
     stage?: SortOrder
     status?: SortOrder
@@ -4575,6 +4604,7 @@ export namespace Prisma {
     age: number
     patientPhoneNo: string
     prescription?: string | null
+    videoUrl?: string | null
     date: Date | string
     stage: string
     status: $Enums.Status
@@ -4588,6 +4618,7 @@ export namespace Prisma {
     age: number
     patientPhoneNo: string
     prescription?: string | null
+    videoUrl?: string | null
     date: Date | string
     stage: string
     status: $Enums.Status
@@ -4631,6 +4662,7 @@ export namespace Prisma {
     age?: IntFilter<"Consultation"> | number
     patientPhoneNo?: StringFilter<"Consultation"> | string
     prescription?: StringNullableFilter<"Consultation"> | string | null
+    videoUrl?: StringNullableFilter<"Consultation"> | string | null
     date?: DateTimeFilter<"Consultation"> | Date | string
     stage?: StringFilter<"Consultation"> | string
     status?: EnumStatusFilter<"Consultation"> | $Enums.Status
@@ -4740,6 +4772,7 @@ export namespace Prisma {
     age: number
     patientPhoneNo: string
     prescription?: string | null
+    videoUrl?: string | null
     date: Date | string
     stage: string
     status: $Enums.Status
@@ -4753,6 +4786,7 @@ export namespace Prisma {
     age?: IntFieldUpdateOperationsInput | number
     patientPhoneNo?: StringFieldUpdateOperationsInput | string
     prescription?: NullableStringFieldUpdateOperationsInput | string | null
+    videoUrl?: NullableStringFieldUpdateOperationsInput | string | null
     date?: DateTimeFieldUpdateOperationsInput | Date | string
     stage?: StringFieldUpdateOperationsInput | string
     status?: EnumStatusFieldUpdateOperationsInput | $Enums.Status
@@ -4766,6 +4800,7 @@ export namespace Prisma {
     age?: IntFieldUpdateOperationsInput | number
     patientPhoneNo?: StringFieldUpdateOperationsInput | string
     prescription?: NullableStringFieldUpdateOperationsInput | string | null
+    videoUrl?: NullableStringFieldUpdateOperationsInput | string | null
     date?: DateTimeFieldUpdateOperationsInput | Date | string
     stage?: StringFieldUpdateOperationsInput | string
     status?: EnumStatusFieldUpdateOperationsInput | $Enums.Status
@@ -4779,6 +4814,7 @@ export namespace Prisma {
     age?: IntFieldUpdateOperationsInput | number
     patientPhoneNo?: StringFieldUpdateOperationsInput | string
     prescription?: NullableStringFieldUpdateOperationsInput | string | null
+    videoUrl?: NullableStringFieldUpdateOperationsInput | string | null
     date?: DateTimeFieldUpdateOperationsInput | Date | string
     stage?: StringFieldUpdateOperationsInput | string
     status?: EnumStatusFieldUpdateOperationsInput | $Enums.Status

@@ -46,6 +46,7 @@ model Consultation {
   age            Int
   patientPhoneNo String
   prescription   String?
+  videoUrl       String?
   date           DateTime
   stage          String
   status         Status
