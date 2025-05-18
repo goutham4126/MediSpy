@@ -7,6 +7,9 @@ import { Label } from '@/components/ui/label'
 import { Badge } from '@/components/ui/badge'
 import { Progress } from '@/components/ui/progress'
 import { ChevronRight, PlusCircle, AlertCircle } from 'lucide-react'
+import AddSymptoms from '@/actions/addSymptoms'
+import toast from 'react-hot-toast'
+import RecentSymptoms from '@/components/RecentSymptoms'
 
 export default function SymptomChecker() {
   const [symptoms, setSymptoms] = useState('')
@@ -42,6 +45,18 @@ export default function SymptomChecker() {
           ...prev,
           disease: data.predictions[0].disease
         }))
+
+        // Here comes the logic to save the symptoms and predictions to the database
+        const addsymptoms = await AddSymptoms({
+          description: symptoms,
+          possibleDisease: data.predictions[0].disease,
+          riskFactor: "30"
+        })
+        if (addsymptoms.error) {
+          toast.error('Error saving symptoms to the database')
+          return;
+        }
+        toast.success('Symptoms analyzed successfully')
       } else {
         throw new Error(data.error || 'Failed to analyze symptoms')
       }
@@ -57,7 +72,7 @@ export default function SymptomChecker() {
   }
 
   return (
-    <div className="mx-auto md:p-4 min-h-screen">
+    <div className="mx-auto md:p-4 space-y-10 min-h-screen">
       <Card className="border border-border bg-background shadow-xl dark:shadow-blue-900/20 rounded-2xl transition-colors">
         <CardContent className="p-6 md:p-8 space-y-8">
           <form onSubmit={handleSubmit} className="space-y-6">
@@ -164,6 +179,7 @@ export default function SymptomChecker() {
           )}
         </CardContent>
       </Card>
+      <RecentSymptoms/>
     </div>
   )
 }

@@ -155,6 +155,26 @@ exports.Prisma.ConsultationScalarFieldEnum = {
   status: 'status'
 };
 
+exports.Prisma.SymptomScalarFieldEnum = {
+  id: 'id',
+  patientId: 'patientId',
+  description: 'description',
+  possibleDisease: 'possibleDisease',
+  riskFactor: 'riskFactor',
+  deleted: 'deleted',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt'
+};
+
+exports.Prisma.SubscriptionScalarFieldEnum = {
+  id: 'id',
+  userId: 'userId',
+  plan: 'plan',
+  endDate: 'endDate',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt'
+};
+
 exports.Prisma.SortOrder = {
   asc: 'asc',
   desc: 'desc'
@@ -182,9 +202,17 @@ exports.Status = exports.$Enums.Status = {
   CANCELLED: 'CANCELLED'
 };
 
+exports.Plan = exports.$Enums.Plan = {
+  FREE: 'FREE',
+  BASIC: 'BASIC',
+  PREMIUM: 'PREMIUM'
+};
+
 exports.Prisma.ModelName = {
   User: 'User',
-  Consultation: 'Consultation'
+  Consultation: 'Consultation',
+  Symptom: 'Symptom',
+  Subscription: 'Subscription'
 };
 
 /**

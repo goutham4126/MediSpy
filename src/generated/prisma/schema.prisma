@@ -30,16 +30,20 @@ model User {
   doctorSpecialization String?
   doctorLicenseNo      String?
   doctorHospital       String?
+  symptoms             Symptom[]      @relation("patientSymptoms")
+  subscription         Subscription[] @relation("subscriptions")
   createdAt            DateTime       @default(now())
   updatedAt            DateTime       @updatedAt
-  consultations        Consultation[] @relation("consultations")
+  patientConsultations Consultation[] @relation("patientConsultations")
+  doctorConsultations  Consultation[] @relation("doctorConsultations")
 }
 
 model Consultation {
   id             String   @id @default(uuid())
   doctorId       String
+  doctor         User     @relation(fields: [doctorId], references: [id], onDelete: Cascade, name: "doctorConsultations")
   patientId      String
-  patient        User     @relation(fields: [patientId], references: [id], onDelete: Cascade, name: "consultations")
+  patient        User     @relation(fields: [patientId], references: [id], onDelete: Cascade, name: "patientConsultations")
   diagnosis      String?
   gender         String
   age            Int
@@ -49,6 +53,28 @@ model Consultation {
   date           DateTime
   stage          String
   status         Status
+}
+
+model Symptom {
+  id              String   @id @default(uuid())
+  patientId       String
+  patient         User     @relation(fields: [patientId], references: [id], onDelete: Cascade, name: "patientSymptoms")
+  description     String
+  possibleDisease String
+  riskFactor      String
+  deleted         Boolean  @default(false)
+  createdAt       DateTime @default(now())
+  updatedAt       DateTime @updatedAt
+}
+
+model Subscription {
+  id        String   @id @default(uuid())
+  userId    String   @unique
+  user      User     @relation(fields: [userId], references: [id], onDelete: Cascade, name: "subscriptions")
+  plan      Plan     @default(FREE)
+  endDate   DateTime @default(dbgenerated("(NOW() + INTERVAL '30 days')"))
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
 }
 
 enum Role {
@@ -62,4 +88,10 @@ enum Status {
   ACTIVE
   PENDING
   CANCELLED
+}
+
+enum Plan {
+  FREE
+  BASIC
+  PREMIUM
 }
