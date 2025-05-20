@@ -19,6 +19,7 @@ import { Progress } from '@/components/ui/progress'
 import { ChevronRight, PlusCircle, AlertCircle } from 'lucide-react'
 import AddSymptoms from '@/actions/addSymptoms'
 import toast from 'react-hot-toast'
+import Chatbot from '@/components/Chatbot'
 
 export default function SymptomChecker() {
   const [symptoms, setSymptoms] = useState('')
@@ -153,6 +154,7 @@ export default function SymptomChecker() {
                 </span>
               )}
             </Button>
+            <Chatbot/>
           </form>
 
           {error && (
