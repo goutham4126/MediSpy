@@ -1,5 +1,15 @@
-'use client'
-import { useState } from 'react'
+"use client"
+import { useState, useEffect } from 'react'
+import {
+  Table,
+  TableBody,
+  TableCaption,
+  TableCell,
+  TableHead,
+  TableHeader,
+  TableRow,
+} from "@/components/ui/table"
+import Loading from '@/app/loading'
 import { Button } from '@/components/ui/button'
 import { Textarea } from '@/components/ui/textarea'
 import { Card, CardContent } from '@/components/ui/card'
@@ -9,7 +19,6 @@ import { Progress } from '@/components/ui/progress'
 import { ChevronRight, PlusCircle, AlertCircle } from 'lucide-react'
 import AddSymptoms from '@/actions/addSymptoms'
 import toast from 'react-hot-toast'
-import RecentSymptoms from '@/components/RecentSymptoms'
 
 export default function SymptomChecker() {
   const [symptoms, setSymptoms] = useState('')
@@ -24,12 +33,42 @@ export default function SymptomChecker() {
     severity: 'moderate'
   })
 
+  const [recentSymptoms, setRecentSymptoms] = useState([])
+
+    useEffect(() => {
+    const fetchSymptoms = async () => {
+      try {
+        setIsLoading(true)
+        const response = await fetch('/api/user-symptoms')
+        
+        if (!response.ok) {
+          throw new Error('Network response was not ok')
+        }
+        
+        const data = await response.json()
+        setRecentSymptoms(data)
+      } catch (error) {
+        console.error('Error fetching symptoms:', error)
+        setError(error.message)
+      } finally {
+        setIsLoading(false)
+      }
+    }
+
+    fetchSymptoms() 
+  }, [])
+
   const handleSubmit = async (e) => {
     e.preventDefault()
     setIsLoading(true)
     setError(null)
 
     try {
+      if(recentSymptoms.length>=3)
+      {
+        toast.error('You can only analyze up to 3 symptoms per month.')
+        return; 
+      }
       const response = await fetch('http://localhost:8000/predict', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
@@ -66,6 +105,9 @@ export default function SymptomChecker() {
       setIsLoading(false)
     }
   }
+
+  if (isLoading) return <div className="-my-28"><Loading /></div>
+  if (error) return <div>Error: {error}</div>
 
   const handleDetailChange = (field, value) => {
     setUserDetails(prev => ({ ...prev, [field]: value }))
@@ -179,7 +221,41 @@ export default function SymptomChecker() {
           )}
         </CardContent>
       </Card>
-      <RecentSymptoms/>
+          <div className="p-4">
+            <h2 className="text-xl font-bold mb-4">Recent Symptoms</h2>
+            
+            <Table className="border">
+              <TableCaption>A list of your recent symptoms.</TableCaption>
+              <TableHeader>
+                <TableRow>
+                  <TableHead>Description</TableHead>
+                  <TableHead>Possible Condition</TableHead>
+                  <TableHead>Risk Factor</TableHead>
+                  <TableHead>Reported Date</TableHead>
+                </TableRow>
+              </TableHeader>
+              <TableBody>
+                {recentSymptoms.length > 0 ? (
+                  recentSymptoms.map((symptom) => (
+                    <TableRow key={symptom.id}>
+                      <TableCell>{symptom.description}</TableCell>
+                      <TableCell>{symptom.possibleDisease || '-'}</TableCell>
+                      <TableCell>{symptom.riskFactor || '-'}</TableCell>
+                      <TableCell>
+                        {new Date(symptom.createdAt).toLocaleDateString()}
+                      </TableCell>
+                    </TableRow>
+                  ))
+                ) : (
+                  <TableRow>
+                    <TableCell colSpan={4} className="text-center">
+                      No symptoms found
+                    </TableCell>
+                  </TableRow>
+                )}
+              </TableBody>
+            </Table>
+          </div>
     </div>
   )
 }

@@ -13,7 +13,8 @@ export default async function Home() {
   const doctors = await getAllDoctors();
   const patientConsultations = await getPatientConsultations();
   const doctorConsultations = await getDoctorConsultations();
-
+  if(!user)
+    return null;
   return (
     <div>
         {
