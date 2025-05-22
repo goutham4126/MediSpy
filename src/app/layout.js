@@ -8,12 +8,12 @@ import {
   SidebarProvider,
   SidebarTrigger,
 } from "@/components/ui/sidebar"
-
 import { SignedIn, SignedOut } from "@clerk/nextjs"
 import Homepage from "@/components/Homepage";
 import { Toaster } from "react-hot-toast";
 import Location from "@/components/Location";
 import AppSidebar from "@/components/Sidebar/app-sidebar";
+import Chatbot from "@/components/Chatbot";
 
 
 const geistSans = Geist({
@@ -43,7 +43,10 @@ export default function RootLayout({ children }) {
                 <header className="flex h-16 shrink-0 items-center gap-2 transition-[width,height] ease-linear group-has-[[data-collapsible=icon]]/sidebar-wrapper:h-12">
                   <div className="flex items-center justify-between gap-2 px-4 w-full">
                     <SidebarTrigger className="-ml-1" />
-                    <Location/>
+                    <div className="flex items-center gap-8 text-blue-700">
+                      <Chatbot/>
+                      <Location/>
+                    </div>
                   </div>
                 </header>
                 <div className="px-4">

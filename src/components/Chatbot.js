@@ -9,6 +9,7 @@ import { IoMdRefresh } from "react-icons/io"
 import { BsRobot } from "react-icons/bs"
 import { IoSettingsOutline } from "react-icons/io5"
 import { FaUserAlt } from "react-icons/fa"
+import { FaRocketchat } from "react-icons/fa";
 
 // shadcn components
 import { Button } from "@/components/ui/button"
@@ -232,7 +233,7 @@ export default function Chatbot() {
   return (
     <Dialog>  
       <DialogTrigger asChild>
-        <Button variant="outline">Open Chat</Button>
+          <FaRocketchat className="h-6 w-6" />
       </DialogTrigger>
       <DialogContent className="max-w-[800px] h-[80vh] p-0 overflow-hidden">
         <DialogHeader>

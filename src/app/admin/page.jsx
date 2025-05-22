@@ -7,10 +7,6 @@ import {
   CardContent,
 } from "@/components/ui/card"
 import Link from "next/link"
-import { Separator } from "@/components/ui/separator"
-import { FaRegAddressBook } from "react-icons/fa";
-import { Textarea } from "@/components/ui/textarea";
-import getPatientConsultations from "@/actions/getPatientConsultations"
 import {
   Table,
   TableBody,
@@ -19,29 +15,10 @@ import {
   TableHeader,
   TableRow,
 } from "@/components/ui/table"
-import {
-  Dialog,
-  DialogClose,
-  DialogContent,
-  DialogDescription,
-  DialogFooter,
-  DialogHeader,
-  DialogTitle,
-  DialogTrigger,
-} from "@/components/ui/dialog"
-import { Input } from "@/components/ui/input"
-import { Label } from "@/components/ui/label"
-import { Button } from "@/components/ui/button"
-import { checkUser } from "@/lib/auth";
-import CopyText from "@/components/CopyText";
-import getAllConsultations from "@/actions/getAllConsultations";
-import { all } from "axios";
 
 
 async function page() {
-  const user = await checkUser();
   const doctors = await getAllDoctors()
-  const allConsultations = await getAllConsultations();
 
   return (
     <div className="space-y-8 p-2">
@@ -82,77 +59,6 @@ async function page() {
             </Card>
           </Link>
         ))}
-      </div>
-      
-      <Separator className="my-6 bg-gray-200" />
-      
-      <div className="space-y-4 bg-white">
-        <div className="pb-2">
-          <h2 className="text-2xl font-bold text-gray-900">All Consultations</h2>
-          <p className="text-sm text-muted-foreground">
-            A list of all user consultations
-          </p>
-        </div>
-        
-        <div className="border border-gray-200 rounded-md overflow-hidden mb-5">
-          <Table className="min-w-full">
-            <TableHeader className="bg-gray-50">
-              <TableRow>
-                <TableHead className="font-medium text-gray-700 border-r border-gray-200 px-4 py-3">
-                  Consultation ID
-                </TableHead>
-                <TableHead className="font-medium text-gray-700 border-r border-gray-200 px-4 py-3">
-                  Doctor
-                </TableHead>
-                <TableHead className="font-medium text-gray-700 border-r border-gray-200 px-4 py-3">
-                  Date
-                </TableHead>
-                <TableHead className="font-medium text-gray-700 border-r border-gray-200 px-4 py-3">
-                  Diagnosis
-                </TableHead>
-                <TableHead className="font-medium text-gray-700 text-right px-4 py-3">
-                  Status
-                </TableHead>
-              </TableRow>
-            </TableHeader>
-            <TableBody>
-              {allConsultations.map((consultation) => (
-                <TableRow 
-                  key={consultation.id} 
-                  className="border-t border-gray-200 hover:bg-gray-50"
-                >
-                  <TableCell className="font-medium border-r border-gray-200 px-4 py-3">
-                    {consultation.id}
-                  </TableCell>
-                  <TableCell className="font-medium border-r border-gray-200 px-4 py-3">
-                    {consultation.doctorId}
-                  </TableCell>
-                  <TableCell className="border-r border-gray-200 px-4 py-3">
-                    {consultation.date.toLocaleDateString("en-US", {
-                      year: "numeric",
-                      month: "2-digit",
-                      day: "2-digit",
-                    })}
-                  </TableCell>
-                  <TableCell className="border-r border-gray-200 px-4 py-3">
-                    {consultation.diagnosis || "Not specified"}
-                  </TableCell>
-                  <TableCell className="text-right px-4 py-3">
-                    <span className={`inline-flex items-center px-3 py-1 rounded-full text-xs font-medium ${
-                      consultation.status === 'PENDING' 
-                        ? 'bg-yellow-100 text-yellow-800' 
-                        : consultation.status === 'COMPLETED' 
-                          ? 'bg-green-100 text-green-800' 
-                          : 'bg-gray-100 text-gray-800'
-                    }`}>
-                      {consultation.status}
-                    </span>
-                  </TableCell>
-                </TableRow>
-              ))}
-            </TableBody>
-          </Table>
-        </div>
       </div>
     </div>
   )
