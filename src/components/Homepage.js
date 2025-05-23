@@ -1,5 +1,6 @@
 import Footer from "./Footer"
 import Header from "./Header"
+import Image from "next/image";
 import { Card, CardHeader, CardTitle, CardContent } from "@/components/ui/card";
 import { FaSearch, FaPrescriptionBottleAlt, FaRobot, FaHospital } from "react-icons/fa";
 
@@ -66,9 +67,11 @@ function Homepage() {
           {/* Feature Showcase */}
           <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-5/6 max-w-5xl">
             <div>
-              <img 
+              <Image 
                 src="/main-2.png" 
                 alt="Feature showcase" 
+                height={1000}
+                width={1000}
                 className="w-full h-auto rounded-xl shadow-2xl border-4 border-white ring-4 ring-blue-200/50"
               />
               <div className="absolute -bottom-6 -right-6 bg-white p-3 rounded-lg shadow-lg">

@@ -7,6 +7,7 @@ import {
   CardContent,
 } from "@/components/ui/card"
 import Link from "next/link"
+import Image from "next/image";
 import { Separator } from "@/components/ui/separator"
 import { FaRegAddressBook } from "react-icons/fa";
 import getDoctorConsultations from "@/actions/getDoctorConsultations"
@@ -58,9 +59,11 @@ async function page() {
           <Link key={doctor.id} href={`/doctor/${doctor.id}`}>
             <Card className="hover:shadow-md transition-shadow duration-300 border border-gray-200 rounded-lg overflow-hidden">
               <CardHeader className="flex items-center gap-4 pb-2">
-                <img
+                <Image
                   src={doctor?.imageUrl}
                   alt={doctor?.name}
+                  width={100}
+                  height={100}
                   className="h-16 w-16 rounded-full object-cover border-2 border-white shadow-sm"
                 />
                 <div className="space-y-1">

@@ -343,9 +343,11 @@ export default function Chatbot() {
                                   <div className="flex gap-2 mt-3 flex-wrap">
                                     {msg.images.map((img) => (
                                       <div key={img.id} className="relative group">
-                                        <img
+                                        <Image
                                           src={img.base64}
                                           alt={img.name}
+                                          width={100}
+                                          height={100}
                                           className="w-24 h-24 object-cover rounded-lg border border-teal-200"
                                         />
                                       </div>
@@ -404,9 +406,11 @@ export default function Chatbot() {
                   <div className="flex gap-2 mb-3 flex-wrap">
                     {uploadedImages.map((img) => (
                       <div key={img.id} className="relative group">
-                        <img 
+                        <Image 
                           src={img.base64} 
                           alt={img.name} 
+                          height={100}
+                          width={100}
                           className="w-20 h-20 object-cover rounded-lg border border-gray-200"
                         />
                         <Badge
