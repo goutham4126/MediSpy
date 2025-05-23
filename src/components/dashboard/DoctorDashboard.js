@@ -56,7 +56,7 @@ export default async function DoctorDashboard({ consultations, user }) {
             </div>
             <div>
               <CardTitle className="text-xl font-bold">
-                Doctor's Dashboard Guide
+                Doctor&apos;s Dashboard Guide
               </CardTitle>
               <CardDescription className="text-base font-medium">
                 Essential reminders and best practices for a smooth consultation workflow.
