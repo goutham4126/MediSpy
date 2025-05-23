@@ -15,6 +15,8 @@ import Location from "@/components/Location";
 import AppSidebar from "@/components/Sidebar/app-sidebar";
 import Chatbot from "@/components/Chatbot";
 import { checkUser } from "@/lib/auth";
+import getSubscription from "@/actions/getSubscription";
+import { Badge } from "@/components/ui/badge";
 
 
 const geistSans = Geist({
@@ -34,6 +36,7 @@ export const metadata = {
 
 export default async function RootLayout({ children }) {
   const user=await checkUser();
+  const subscription= await getSubscription();
   return (
     <ClerkProvider>
       <html lang="en">
@@ -46,6 +49,13 @@ export default async function RootLayout({ children }) {
                   <div className="flex items-center justify-between gap-2 px-4 w-full">
                     <SidebarTrigger className="-ml-1" />
                     <div className="flex items-center gap-8 text-blue-700">
+                      {
+                        user?.role === "PATIENT" && (
+                          <Badge variant={subscription === null ? "secondary" : "default"}>
+                            {subscription === null ? "FREE" : subscription.plan.toUpperCase()}
+                          </Badge>
+                        )
+                      }
                       {
                         user?.role!=="ADMIN" &&
                         <>

@@ -6,7 +6,6 @@ function Homepage() {
     <div>
       <Header />
       <div className="px-4">
-        {/* Hero Section */}
         <div className="flex justify-center items-center my-12 md:my-16 text-center">
           <div>
             <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold text-blue-900 leading-tight">
