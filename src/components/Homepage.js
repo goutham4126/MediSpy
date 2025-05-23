@@ -1,7 +1,31 @@
 import Footer from "./Footer"
 import Header from "./Header"
+import { Card, CardHeader, CardTitle, CardContent } from "@/components/ui/card";
+import { FaSearch, FaPrescriptionBottleAlt, FaRobot, FaHospital } from "react-icons/fa";
 
 function Homepage() {
+   const features = [
+    {
+      icon: <FaSearch className="h-6 w-6" />,
+      title: "Symptom Analyzer",
+      description: "AI-powered symptom to disease finder with accurate assessments"
+    },
+    {
+      icon: <FaPrescriptionBottleAlt className="h-6 w-6" />,
+      title: "Digital Prescriptions",
+      description: "Get prescriptions and video consultations with certified doctors"
+    },
+    {
+      icon: <FaRobot className="h-6 w-6" />,
+      title: "AI Health Assistant",
+      description: "Smart chatbot for prescription help and medical advice"
+    },
+    {
+      icon: <FaHospital className="h-6 w-6" />,
+      title: "Hospital Locator",
+      description: "Find the nearest hospitals and specialists in your area"
+    }
+  ];
   return (
     <div>
       <Header />
@@ -10,48 +34,20 @@ function Homepage() {
           <div>
             <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold text-blue-900 leading-tight">
               <span className="block">
-                Develop <span className="text-blue-600">faster</span>.
+                Your <span className="text-blue-600">Health</span>.
               </span>
               <span className="block">
-                Deploy <span className="text-blue-600">anywhere</span>.
+                Our <span className="text-blue-600">Priority</span>.
               </span>
             </h1>
             <p className="my-6 md:my-8 text-lg md:text-2xl font-semibold">
-              Build with the <span className="text-blue-600">#1 most-used developer tool.</span>
+              Most trusted and  <span className="text-blue-600">#1 most-used healthcare platform.</span>
             </p>
-            
-            <div className="flex flex-col sm:flex-row gap-4 justify-center items-center mt-8">
-              <button className="w-full sm:w-auto text-white bg-gradient-to-r from-blue-600 to-blue-500 px-8 py-4 rounded-lg text-lg font-semibold shadow-lg">
-                Get started
-                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={2} stroke="currentColor" className="h-5 w-5 inline ml-2">
-                  <path strokeLinecap="round" strokeLinejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3" />
-                </svg>
-              </button>
-              
-              <button className="w-full sm:w-auto px-8 py-4 rounded-lg text-lg font-semibold border-2 border-gray-300 text-gray-700 shadow-sm">
-                Explore features
-              </button>
-            </div>
-            
-            <div className="mt-12 flex justify-center gap-8 flex-wrap">
-              <div className="flex items-center gap-2">
-                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="h-6 w-6 text-blue-500">
-                  <path strokeLinecap="round" strokeLinejoin="round" d="M8.25 3v1.5M4.5 8.25H3m18 0h-1.5M4.5 12H3m18 0h-1.5m-15 3.75H3m18 0h-1.5M8.25 19.5V21M12 3v1.5m0 15V21m3.75-18v1.5m0 15V21m-9-1.5h10.5a2.25 2.25 0 002.25-2.25V6.75a2.25 2.25 0 00-2.25-2.25H6.75A2.25 2.25 0 004.5 6.75v10.5a2.25 2.25 0 002.25 2.25zm.75-12h9v9h-9v-9z" />
-                </svg>
-                <span className="text-gray-600 font-medium">Lightning Fast</span>
-              </div>
-              <div className="flex items-center gap-2">
-                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="h-6 w-6 text-blue-500">
-                  <path strokeLinecap="round" strokeLinejoin="round" d="M12 16.5V9.75m0 0l3 3m-3-3l-3 3M6.75 19.5a4.5 4.5 0 01-1.41-8.775 5.25 5.25 0 0110.233-2.33 3 3 0 013.758 3.848A3.752 3.752 0 0118 19.5H6.75z" />
-                </svg>
-                <span className="text-gray-600 font-medium">Cloud Ready</span>
-              </div>
-            </div>
           </div>
         </div>
         
         {/* Curved Divider */}
-        <div className="relative md:py-16">
+        <div className="relative md:py-32">
           <svg 
             viewBox="0 0 1200 120" 
             preserveAspectRatio="none" 
@@ -71,7 +67,7 @@ function Homepage() {
           <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-5/6 max-w-5xl">
             <div>
               <img 
-                src="/main.png" 
+                src="/main-2.png" 
                 alt="Feature showcase" 
                 className="w-full h-auto rounded-xl shadow-2xl border-4 border-white ring-4 ring-blue-200/50"
               />
@@ -85,26 +81,40 @@ function Homepage() {
             </div>
           </div>
         </div>
-        
-        {/* Stats Section */}
-        <div className="mt-20 mb-10 md:mt-32 md:mb-20">
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-8 max-w-6xl mx-auto">
-            {[
-              { value: "10M+", label: "Developers" },
-              { value: "100K+", label: "Companies" },
-              { value: "99.9%", label: "Uptime" },
-              { value: "5x", label: "Faster" }
-            ].map((stat, index) => (
-              <div 
-                key={index}
-                className="bg-white p-6 rounded-xl shadow-md text-center"
-              >
-                <div className="text-3xl font-bold text-blue-600 mb-2">{stat.value}</div>
-                <div className="text-gray-600">{stat.label}</div>
-              </div>
-            ))}
+        <section className="py-12 md:pt-32 md:pb-16 bg-white">
+          <div className="container px-4 md:px-8">
+            <div className="mx-auto flex flex-col items-center space-y-4 text-center mb-12">
+              <h2 className="font-bold text-3xl leading-[1.1] sm:text-3xl md:text-4xl text-blue-900">
+                Our Powerful Features
+              </h2>
+              <p className="max-w-[85%] leading-normal text-blue-800/80 sm:text-lg font-semibold">
+                Everything you need for comprehensive healthcare at your fingertips
+              </p>
+            </div>
+
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+              {features.map((feature, index) => (
+                <Card 
+                  key={index}
+                  className="border-2 border-blue-100 hover:border-blue-300 transition-all hover:shadow-lg hover:shadow-blue-200/30 hover:scale-[1.02]"
+                >
+                  <CardHeader>
+                    <div className="w-12 h-12 bg-blue-600 text-white flex items-center justify-center rounded-full mb-4">
+                      {feature.icon}
+                    </div>
+                    <CardTitle className="text-xl font-semibold text-blue-900">
+                      {feature.title}
+                    </CardTitle>
+                  </CardHeader>
+                  <CardContent className="font-semibold text-sm text-blue-800/80">
+                    {feature.description}
+                  </CardContent>
+                </Card>
+              ))}
+            </div>
           </div>
-        </div>
+        </section>
+            
       </div>
       <Footer/>
     </div>
