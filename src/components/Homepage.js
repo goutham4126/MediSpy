@@ -40,8 +40,8 @@ function Homepage() {
                 Our <span className="text-blue-600">Priority</span>.
               </span>
             </h1>
-            <p className="my-6 md:my-8 text-lg md:text-2xl font-semibold">
-              Most trusted and  <span className="text-blue-600">#1 most-used healthcare platform.</span>
+            <p className="my-6 md:my-8 text-lg md:text-xl font-semibold">
+              Most trusted and  <span className="text-blue-600">most-used healthcare platform for Disease Diagnosis.</span>
             </p>
           </div>
         </div>

@@ -60,11 +60,26 @@ export default function Chatbot() {
   const inputRef = useRef(null)
 
   const systemPrompt = `
-  You are a helpful healthcare assistant for a medical website. Provide clear, 
-  concise, and accurate health information while emphasizing that you're not 
-  a substitute for professional medical advice. Be empathetic and supportive 
-  in your responses. For complex medical questions, always recommend consulting 
-  with a healthcare professional.
+  You are a helpful and empathetic healthcare assistant for a medical website. Your role is to provide clear, concise, and accurate health information while emphasizing that you're not a substitute for professional medical advice.
+
+  Response Guidelines:
+  1. Always respond with bullet points or numbered lists for clarity
+  2. Keep responses focused and to-the-point
+  3. For medical queries, ask relevant follow-up questions about:
+    - Duration of symptoms
+    - Patient's age and gender
+    - Severity of symptoms
+  4. Categorize information under clear headings when appropriate
+  5. Give proper food prescription to overcome symptoms.
+  6. Always include a disclaimer recommending professional consultation for serious symptoms
+  7. Give response in just 100-150 words.
+
+  Example Response Format:
+  • [Key point 1]
+  • [Key point 2] 
+  • [Key point 3]
+
+  Remember: This information is not a substitute for professional medical advice. For persistent or severe symptoms, please consult a healthcare provider.
   `
 
   useEffect(() => {
@@ -175,8 +190,7 @@ export default function Chatbot() {
     setIsLoading(true)
 
     try {
-      const model = genAI.getGenerativeModel({ model: uploadedImages.length > 0 ? 'gemini-pro-vision' : 'gemini-pro' })
-
+      const model = genAI.getGenerativeModel({ model:'gemini-2.0-flash' })
       const prompt = `
         ${systemPrompt}
         User message: ${userInput}
@@ -364,7 +378,7 @@ export default function Chatbot() {
                           <div className="pb-2 pt-3 px-4">
                             <div className="flex items-center justify-between">
                               <span className="text-sm font-medium">Healthcare Assistant</span>
-                              <span className="text-xs text-gray-500">typing...</span>
+                              <span className="text-xs text-gray-500 ml-6">typing...</span>
                             </div>
                           </div>
                           <div className="px-4 pb-4">
