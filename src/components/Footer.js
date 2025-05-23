@@ -32,16 +32,16 @@ import {
             <a className="text-gray-500" href="#">
               <Facebook className="w-5 h-5" />
             </a>
-            <a className="ml-3 text-gray-500" href="#">
+            <a className="ml-5 text-gray-500" href="#">
               <Twitter className="w-5 h-5" />
             </a>
-            <a className="ml-3 text-gray-500" href="#">
+            <a className="ml-5 text-gray-500" href="#">
               <Instagram className="w-5 h-5" />
             </a>
-            <a className="ml-3 text-gray-500" href="#">
+            <a className="ml-5 text-gray-500" href="#">
               <Linkedin className="w-5 h-5" />
             </a>
-            <a className="ml-3 text-gray-500" href="#">
+            <a className="ml-5 text-gray-500" href="#">
               <Github className="w-5 h-5" />
             </a>
           </span>
