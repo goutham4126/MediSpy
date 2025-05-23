@@ -13,7 +13,7 @@ import {
   SidebarHeader,
   SidebarRail,
 } from "@/components/ui/sidebar"
-import { NavSingle } from "./nav-single"
+// import { NavSingle } from "./nav-single"
 import { NavGroup } from "./nav-group"
 
 const data = {
@@ -56,12 +56,12 @@ const data = {
       ],
     },
   ],
-  billing:
-  {
-    title: "Billing",
-    icon: PieChart,
-    url: "/billing",
-  }
+  // billing:
+  // {
+  //   title: "Billing",
+  //   icon: PieChart,
+  //   url: "/billing",
+  // }
 }
 
 export async function DoctorSidebar({ ...props }) {
@@ -74,7 +74,7 @@ export async function DoctorSidebar({ ...props }) {
       <SidebarContent>
         <NavGroup items={data.single}/>
         <NavMain items={data.navMain} /> 
-        <NavSingle item={data.billing} />
+        {/* <NavSingle item={data.billing} /> */}
       </SidebarContent>
       <SidebarFooter>
         <NavUser user={user}/>

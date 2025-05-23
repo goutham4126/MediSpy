@@ -18,6 +18,7 @@ import {
 } from "@/components/ui/table";
 import DeleteUserButton from "../DeleteUserButton";
 import EditUserRoleButton from "../EditUserRoleButton";
+import { Component } from "../charts/BarChart";
 
 
 export default async function AdminDashboard({ doctors, consultations,patients }) {
@@ -57,6 +58,9 @@ export default async function AdminDashboard({ doctors, consultations,patients }
             <p className="text-lg font-bold text-purple-600">{users.length}</p>
           </CardContent>
         </Card>
+      </div>
+      <div className="my-4">
+        <Component consultations={allConsultations} />
       </div>
       <div className="flex flex-col md:flex-row gap-4">
         <div className="w-full">

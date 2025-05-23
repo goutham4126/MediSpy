@@ -10,20 +10,20 @@ import getAllPatients from "@/actions/getAllPatients";
 
 export default async function Home() {
   const user = await checkUser();
+  if(!user)
+    return null;
   const consultations = await getAllConsultations();
   const doctors = await getAllDoctors();
   const patientConsultations = await getPatientConsultations();
   const doctorConsultations = await getDoctorConsultations();
   const patients=await getAllPatients();
-  if(!user)
-    return null;
   return (
     <div>
         {
           user.role === "ADMIN" ? (
             <AdminDashboard doctors={doctors} consultations={consultations} patients={patients}/>
           ) : user.role === "DOCTOR" ? (
-            <DoctorDashboard doctors={doctors} consultations={doctorConsultations}/>
+            <DoctorDashboard consultations={doctorConsultations} user={user}/>
           ) : (
             <PatientDashboard doctors={doctors} consultations={patientConsultations}/>
           )

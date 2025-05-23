@@ -1270,6 +1270,7 @@ export namespace Prisma {
     doctorSpecialization: string | null
     doctorLicenseNo: string | null
     doctorHospital: string | null
+    doctorAvailability: boolean | null
     createdAt: Date | null
     updatedAt: Date | null
   }
@@ -1290,6 +1291,7 @@ export namespace Prisma {
     doctorSpecialization: string | null
     doctorLicenseNo: string | null
     doctorHospital: string | null
+    doctorAvailability: boolean | null
     createdAt: Date | null
     updatedAt: Date | null
   }
@@ -1310,6 +1312,7 @@ export namespace Prisma {
     doctorSpecialization: number
     doctorLicenseNo: number
     doctorHospital: number
+    doctorAvailability: number
     createdAt: number
     updatedAt: number
     _all: number
@@ -1332,6 +1335,7 @@ export namespace Prisma {
     doctorSpecialization?: true
     doctorLicenseNo?: true
     doctorHospital?: true
+    doctorAvailability?: true
     createdAt?: true
     updatedAt?: true
   }
@@ -1352,6 +1356,7 @@ export namespace Prisma {
     doctorSpecialization?: true
     doctorLicenseNo?: true
     doctorHospital?: true
+    doctorAvailability?: true
     createdAt?: true
     updatedAt?: true
   }
@@ -1372,6 +1377,7 @@ export namespace Prisma {
     doctorSpecialization?: true
     doctorLicenseNo?: true
     doctorHospital?: true
+    doctorAvailability?: true
     createdAt?: true
     updatedAt?: true
     _all?: true
@@ -1465,6 +1471,7 @@ export namespace Prisma {
     doctorSpecialization: string | null
     doctorLicenseNo: string | null
     doctorHospital: string | null
+    doctorAvailability: boolean
     createdAt: Date
     updatedAt: Date
     _count: UserCountAggregateOutputType | null
@@ -1502,6 +1509,7 @@ export namespace Prisma {
     doctorSpecialization?: boolean
     doctorLicenseNo?: boolean
     doctorHospital?: boolean
+    doctorAvailability?: boolean
     createdAt?: boolean
     updatedAt?: boolean
     symptoms?: boolean | User$symptomsArgs<ExtArgs>
@@ -1527,6 +1535,7 @@ export namespace Prisma {
     doctorSpecialization?: boolean
     doctorLicenseNo?: boolean
     doctorHospital?: boolean
+    doctorAvailability?: boolean
     createdAt?: boolean
     updatedAt?: boolean
   }, ExtArgs["result"]["user"]>
@@ -1547,6 +1556,7 @@ export namespace Prisma {
     doctorSpecialization?: boolean
     doctorLicenseNo?: boolean
     doctorHospital?: boolean
+    doctorAvailability?: boolean
     createdAt?: boolean
     updatedAt?: boolean
   }, ExtArgs["result"]["user"]>
@@ -1567,11 +1577,12 @@ export namespace Prisma {
     doctorSpecialization?: boolean
     doctorLicenseNo?: boolean
     doctorHospital?: boolean
+    doctorAvailability?: boolean
     createdAt?: boolean
     updatedAt?: boolean
   }
 
-  export type UserOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "clerkUserId" | "name" | "email" | "imageUrl" | "role" | "doctorAge" | "doctorPhone" | "doctorGender" | "doctorAddress" | "doctorEducation" | "doctorExperience" | "doctorSpecialization" | "doctorLicenseNo" | "doctorHospital" | "createdAt" | "updatedAt", ExtArgs["result"]["user"]>
+  export type UserOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "clerkUserId" | "name" | "email" | "imageUrl" | "role" | "doctorAge" | "doctorPhone" | "doctorGender" | "doctorAddress" | "doctorEducation" | "doctorExperience" | "doctorSpecialization" | "doctorLicenseNo" | "doctorHospital" | "doctorAvailability" | "createdAt" | "updatedAt", ExtArgs["result"]["user"]>
   export type UserInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     symptoms?: boolean | User$symptomsArgs<ExtArgs>
     subscription?: boolean | User$subscriptionArgs<ExtArgs>
@@ -1606,6 +1617,7 @@ export namespace Prisma {
       doctorSpecialization: string | null
       doctorLicenseNo: string | null
       doctorHospital: string | null
+      doctorAvailability: boolean
       createdAt: Date
       updatedAt: Date
     }, ExtArgs["result"]["user"]>
@@ -2050,6 +2062,7 @@ export namespace Prisma {
     readonly doctorSpecialization: FieldRef<"User", 'String'>
     readonly doctorLicenseNo: FieldRef<"User", 'String'>
     readonly doctorHospital: FieldRef<"User", 'String'>
+    readonly doctorAvailability: FieldRef<"User", 'Boolean'>
     readonly createdAt: FieldRef<"User", 'DateTime'>
     readonly updatedAt: FieldRef<"User", 'DateTime'>
   }
@@ -5943,6 +5956,7 @@ export namespace Prisma {
     doctorSpecialization: 'doctorSpecialization',
     doctorLicenseNo: 'doctorLicenseNo',
     doctorHospital: 'doctorHospital',
+    doctorAvailability: 'doctorAvailability',
     createdAt: 'createdAt',
     updatedAt: 'updatedAt'
   };
@@ -6052,6 +6066,13 @@ export namespace Prisma {
 
 
   /**
+   * Reference to a field of type 'Boolean'
+   */
+  export type BooleanFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'Boolean'>
+    
+
+
+  /**
    * Reference to a field of type 'DateTime'
    */
   export type DateTimeFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'DateTime'>
@@ -6090,13 +6111,6 @@ export namespace Prisma {
    * Reference to a field of type 'Status[]'
    */
   export type ListEnumStatusFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'Status[]'>
-    
-
-
-  /**
-   * Reference to a field of type 'Boolean'
-   */
-  export type BooleanFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'Boolean'>
     
 
 
@@ -6150,6 +6164,7 @@ export namespace Prisma {
     doctorSpecialization?: StringNullableFilter<"User"> | string | null
     doctorLicenseNo?: StringNullableFilter<"User"> | string | null
     doctorHospital?: StringNullableFilter<"User"> | string | null
+    doctorAvailability?: BoolFilter<"User"> | boolean
     createdAt?: DateTimeFilter<"User"> | Date | string
     updatedAt?: DateTimeFilter<"User"> | Date | string
     symptoms?: SymptomListRelationFilter
@@ -6174,6 +6189,7 @@ export namespace Prisma {
     doctorSpecialization?: SortOrderInput | SortOrder
     doctorLicenseNo?: SortOrderInput | SortOrder
     doctorHospital?: SortOrderInput | SortOrder
+    doctorAvailability?: SortOrder
     createdAt?: SortOrder
     updatedAt?: SortOrder
     symptoms?: SymptomOrderByRelationAggregateInput
@@ -6201,6 +6217,7 @@ export namespace Prisma {
     doctorSpecialization?: StringNullableFilter<"User"> | string | null
     doctorLicenseNo?: StringNullableFilter<"User"> | string | null
     doctorHospital?: StringNullableFilter<"User"> | string | null
+    doctorAvailability?: BoolFilter<"User"> | boolean
     createdAt?: DateTimeFilter<"User"> | Date | string
     updatedAt?: DateTimeFilter<"User"> | Date | string
     symptoms?: SymptomListRelationFilter
@@ -6225,6 +6242,7 @@ export namespace Prisma {
     doctorSpecialization?: SortOrderInput | SortOrder
     doctorLicenseNo?: SortOrderInput | SortOrder
     doctorHospital?: SortOrderInput | SortOrder
+    doctorAvailability?: SortOrder
     createdAt?: SortOrder
     updatedAt?: SortOrder
     _count?: UserCountOrderByAggregateInput
@@ -6251,6 +6269,7 @@ export namespace Prisma {
     doctorSpecialization?: StringNullableWithAggregatesFilter<"User"> | string | null
     doctorLicenseNo?: StringNullableWithAggregatesFilter<"User"> | string | null
     doctorHospital?: StringNullableWithAggregatesFilter<"User"> | string | null
+    doctorAvailability?: BoolWithAggregatesFilter<"User"> | boolean
     createdAt?: DateTimeWithAggregatesFilter<"User"> | Date | string
     updatedAt?: DateTimeWithAggregatesFilter<"User"> | Date | string
   }
@@ -6496,6 +6515,7 @@ export namespace Prisma {
     doctorSpecialization?: string | null
     doctorLicenseNo?: string | null
     doctorHospital?: string | null
+    doctorAvailability?: boolean
     createdAt?: Date | string
     updatedAt?: Date | string
     symptoms?: SymptomCreateNestedManyWithoutPatientInput
@@ -6520,6 +6540,7 @@ export namespace Prisma {
     doctorSpecialization?: string | null
     doctorLicenseNo?: string | null
     doctorHospital?: string | null
+    doctorAvailability?: boolean
     createdAt?: Date | string
     updatedAt?: Date | string
     symptoms?: SymptomUncheckedCreateNestedManyWithoutPatientInput
@@ -6544,6 +6565,7 @@ export namespace Prisma {
     doctorSpecialization?: NullableStringFieldUpdateOperationsInput | string | null
     doctorLicenseNo?: NullableStringFieldUpdateOperationsInput | string | null
     doctorHospital?: NullableStringFieldUpdateOperationsInput | string | null
+    doctorAvailability?: BoolFieldUpdateOperationsInput | boolean
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     symptoms?: SymptomUpdateManyWithoutPatientNestedInput
@@ -6568,6 +6590,7 @@ export namespace Prisma {
     doctorSpecialization?: NullableStringFieldUpdateOperationsInput | string | null
     doctorLicenseNo?: NullableStringFieldUpdateOperationsInput | string | null
     doctorHospital?: NullableStringFieldUpdateOperationsInput | string | null
+    doctorAvailability?: BoolFieldUpdateOperationsInput | boolean
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     symptoms?: SymptomUncheckedUpdateManyWithoutPatientNestedInput
@@ -6592,6 +6615,7 @@ export namespace Prisma {
     doctorSpecialization?: string | null
     doctorLicenseNo?: string | null
     doctorHospital?: string | null
+    doctorAvailability?: boolean
     createdAt?: Date | string
     updatedAt?: Date | string
   }
@@ -6612,6 +6636,7 @@ export namespace Prisma {
     doctorSpecialization?: NullableStringFieldUpdateOperationsInput | string | null
     doctorLicenseNo?: NullableStringFieldUpdateOperationsInput | string | null
     doctorHospital?: NullableStringFieldUpdateOperationsInput | string | null
+    doctorAvailability?: BoolFieldUpdateOperationsInput | boolean
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
   }
@@ -6632,6 +6657,7 @@ export namespace Prisma {
     doctorSpecialization?: NullableStringFieldUpdateOperationsInput | string | null
     doctorLicenseNo?: NullableStringFieldUpdateOperationsInput | string | null
     doctorHospital?: NullableStringFieldUpdateOperationsInput | string | null
+    doctorAvailability?: BoolFieldUpdateOperationsInput | boolean
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
   }
@@ -6914,6 +6940,11 @@ export namespace Prisma {
     not?: NestedEnumRoleFilter<$PrismaModel> | $Enums.Role
   }
 
+  export type BoolFilter<$PrismaModel = never> = {
+    equals?: boolean | BooleanFieldRefInput<$PrismaModel>
+    not?: NestedBoolFilter<$PrismaModel> | boolean
+  }
+
   export type DateTimeFilter<$PrismaModel = never> = {
     equals?: Date | string | DateTimeFieldRefInput<$PrismaModel>
     in?: Date[] | string[] | ListDateTimeFieldRefInput<$PrismaModel>
@@ -6976,6 +7007,7 @@ export namespace Prisma {
     doctorSpecialization?: SortOrder
     doctorLicenseNo?: SortOrder
     doctorHospital?: SortOrder
+    doctorAvailability?: SortOrder
     createdAt?: SortOrder
     updatedAt?: SortOrder
   }
@@ -6996,6 +7028,7 @@ export namespace Prisma {
     doctorSpecialization?: SortOrder
     doctorLicenseNo?: SortOrder
     doctorHospital?: SortOrder
+    doctorAvailability?: SortOrder
     createdAt?: SortOrder
     updatedAt?: SortOrder
   }
@@ -7016,6 +7049,7 @@ export namespace Prisma {
     doctorSpecialization?: SortOrder
     doctorLicenseNo?: SortOrder
     doctorHospital?: SortOrder
+    doctorAvailability?: SortOrder
     createdAt?: SortOrder
     updatedAt?: SortOrder
   }
@@ -7064,6 +7098,14 @@ export namespace Prisma {
     _count?: NestedIntFilter<$PrismaModel>
     _min?: NestedEnumRoleFilter<$PrismaModel>
     _max?: NestedEnumRoleFilter<$PrismaModel>
+  }
+
+  export type BoolWithAggregatesFilter<$PrismaModel = never> = {
+    equals?: boolean | BooleanFieldRefInput<$PrismaModel>
+    not?: NestedBoolWithAggregatesFilter<$PrismaModel> | boolean
+    _count?: NestedIntFilter<$PrismaModel>
+    _min?: NestedBoolFilter<$PrismaModel>
+    _max?: NestedBoolFilter<$PrismaModel>
   }
 
   export type DateTimeWithAggregatesFilter<$PrismaModel = never> = {
@@ -7182,11 +7224,6 @@ export namespace Prisma {
     _max?: NestedEnumStatusFilter<$PrismaModel>
   }
 
-  export type BoolFilter<$PrismaModel = never> = {
-    equals?: boolean | BooleanFieldRefInput<$PrismaModel>
-    not?: NestedBoolFilter<$PrismaModel> | boolean
-  }
-
   export type SymptomCountOrderByAggregateInput = {
     id?: SortOrder
     patientId?: SortOrder
@@ -7218,14 +7255,6 @@ export namespace Prisma {
     deleted?: SortOrder
     createdAt?: SortOrder
     updatedAt?: SortOrder
-  }
-
-  export type BoolWithAggregatesFilter<$PrismaModel = never> = {
-    equals?: boolean | BooleanFieldRefInput<$PrismaModel>
-    not?: NestedBoolWithAggregatesFilter<$PrismaModel> | boolean
-    _count?: NestedIntFilter<$PrismaModel>
-    _min?: NestedBoolFilter<$PrismaModel>
-    _max?: NestedBoolFilter<$PrismaModel>
   }
 
   export type EnumPlanFilter<$PrismaModel = never> = {
@@ -7338,6 +7367,10 @@ export namespace Prisma {
 
   export type EnumRoleFieldUpdateOperationsInput = {
     set?: $Enums.Role
+  }
+
+  export type BoolFieldUpdateOperationsInput = {
+    set?: boolean
   }
 
   export type DateTimeFieldUpdateOperationsInput = {
@@ -7502,10 +7535,6 @@ export namespace Prisma {
     connect?: UserWhereUniqueInput
   }
 
-  export type BoolFieldUpdateOperationsInput = {
-    set?: boolean
-  }
-
   export type UserUpdateOneRequiredWithoutSymptomsNestedInput = {
     create?: XOR<UserCreateWithoutSymptomsInput, UserUncheckedCreateWithoutSymptomsInput>
     connectOrCreate?: UserCreateOrConnectWithoutSymptomsInput
@@ -7565,6 +7594,11 @@ export namespace Prisma {
     in?: $Enums.Role[] | ListEnumRoleFieldRefInput<$PrismaModel>
     notIn?: $Enums.Role[] | ListEnumRoleFieldRefInput<$PrismaModel>
     not?: NestedEnumRoleFilter<$PrismaModel> | $Enums.Role
+  }
+
+  export type NestedBoolFilter<$PrismaModel = never> = {
+    equals?: boolean | BooleanFieldRefInput<$PrismaModel>
+    not?: NestedBoolFilter<$PrismaModel> | boolean
   }
 
   export type NestedDateTimeFilter<$PrismaModel = never> = {
@@ -7644,6 +7678,14 @@ export namespace Prisma {
     _max?: NestedEnumRoleFilter<$PrismaModel>
   }
 
+  export type NestedBoolWithAggregatesFilter<$PrismaModel = never> = {
+    equals?: boolean | BooleanFieldRefInput<$PrismaModel>
+    not?: NestedBoolWithAggregatesFilter<$PrismaModel> | boolean
+    _count?: NestedIntFilter<$PrismaModel>
+    _min?: NestedBoolFilter<$PrismaModel>
+    _max?: NestedBoolFilter<$PrismaModel>
+  }
+
   export type NestedDateTimeWithAggregatesFilter<$PrismaModel = never> = {
     equals?: Date | string | DateTimeFieldRefInput<$PrismaModel>
     in?: Date[] | string[] | ListDateTimeFieldRefInput<$PrismaModel>
@@ -7700,19 +7742,6 @@ export namespace Prisma {
     _count?: NestedIntFilter<$PrismaModel>
     _min?: NestedEnumStatusFilter<$PrismaModel>
     _max?: NestedEnumStatusFilter<$PrismaModel>
-  }
-
-  export type NestedBoolFilter<$PrismaModel = never> = {
-    equals?: boolean | BooleanFieldRefInput<$PrismaModel>
-    not?: NestedBoolFilter<$PrismaModel> | boolean
-  }
-
-  export type NestedBoolWithAggregatesFilter<$PrismaModel = never> = {
-    equals?: boolean | BooleanFieldRefInput<$PrismaModel>
-    not?: NestedBoolWithAggregatesFilter<$PrismaModel> | boolean
-    _count?: NestedIntFilter<$PrismaModel>
-    _min?: NestedBoolFilter<$PrismaModel>
-    _max?: NestedBoolFilter<$PrismaModel>
   }
 
   export type NestedEnumPlanFilter<$PrismaModel = never> = {
@@ -7988,6 +8017,7 @@ export namespace Prisma {
     doctorSpecialization?: string | null
     doctorLicenseNo?: string | null
     doctorHospital?: string | null
+    doctorAvailability?: boolean
     createdAt?: Date | string
     updatedAt?: Date | string
     symptoms?: SymptomCreateNestedManyWithoutPatientInput
@@ -8011,6 +8041,7 @@ export namespace Prisma {
     doctorSpecialization?: string | null
     doctorLicenseNo?: string | null
     doctorHospital?: string | null
+    doctorAvailability?: boolean
     createdAt?: Date | string
     updatedAt?: Date | string
     symptoms?: SymptomUncheckedCreateNestedManyWithoutPatientInput
@@ -8039,6 +8070,7 @@ export namespace Prisma {
     doctorSpecialization?: string | null
     doctorLicenseNo?: string | null
     doctorHospital?: string | null
+    doctorAvailability?: boolean
     createdAt?: Date | string
     updatedAt?: Date | string
     symptoms?: SymptomCreateNestedManyWithoutPatientInput
@@ -8062,6 +8094,7 @@ export namespace Prisma {
     doctorSpecialization?: string | null
     doctorLicenseNo?: string | null
     doctorHospital?: string | null
+    doctorAvailability?: boolean
     createdAt?: Date | string
     updatedAt?: Date | string
     symptoms?: SymptomUncheckedCreateNestedManyWithoutPatientInput
@@ -8101,6 +8134,7 @@ export namespace Prisma {
     doctorSpecialization?: NullableStringFieldUpdateOperationsInput | string | null
     doctorLicenseNo?: NullableStringFieldUpdateOperationsInput | string | null
     doctorHospital?: NullableStringFieldUpdateOperationsInput | string | null
+    doctorAvailability?: BoolFieldUpdateOperationsInput | boolean
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     symptoms?: SymptomUpdateManyWithoutPatientNestedInput
@@ -8124,6 +8158,7 @@ export namespace Prisma {
     doctorSpecialization?: NullableStringFieldUpdateOperationsInput | string | null
     doctorLicenseNo?: NullableStringFieldUpdateOperationsInput | string | null
     doctorHospital?: NullableStringFieldUpdateOperationsInput | string | null
+    doctorAvailability?: BoolFieldUpdateOperationsInput | boolean
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     symptoms?: SymptomUncheckedUpdateManyWithoutPatientNestedInput
@@ -8158,6 +8193,7 @@ export namespace Prisma {
     doctorSpecialization?: NullableStringFieldUpdateOperationsInput | string | null
     doctorLicenseNo?: NullableStringFieldUpdateOperationsInput | string | null
     doctorHospital?: NullableStringFieldUpdateOperationsInput | string | null
+    doctorAvailability?: BoolFieldUpdateOperationsInput | boolean
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     symptoms?: SymptomUpdateManyWithoutPatientNestedInput
@@ -8181,6 +8217,7 @@ export namespace Prisma {
     doctorSpecialization?: NullableStringFieldUpdateOperationsInput | string | null
     doctorLicenseNo?: NullableStringFieldUpdateOperationsInput | string | null
     doctorHospital?: NullableStringFieldUpdateOperationsInput | string | null
+    doctorAvailability?: BoolFieldUpdateOperationsInput | boolean
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     symptoms?: SymptomUncheckedUpdateManyWithoutPatientNestedInput
@@ -8204,6 +8241,7 @@ export namespace Prisma {
     doctorSpecialization?: string | null
     doctorLicenseNo?: string | null
     doctorHospital?: string | null
+    doctorAvailability?: boolean
     createdAt?: Date | string
     updatedAt?: Date | string
     subscription?: SubscriptionCreateNestedManyWithoutUserInput
@@ -8227,6 +8265,7 @@ export namespace Prisma {
     doctorSpecialization?: string | null
     doctorLicenseNo?: string | null
     doctorHospital?: string | null
+    doctorAvailability?: boolean
     createdAt?: Date | string
     updatedAt?: Date | string
     subscription?: SubscriptionUncheckedCreateNestedManyWithoutUserInput
@@ -8266,6 +8305,7 @@ export namespace Prisma {
     doctorSpecialization?: NullableStringFieldUpdateOperationsInput | string | null
     doctorLicenseNo?: NullableStringFieldUpdateOperationsInput | string | null
     doctorHospital?: NullableStringFieldUpdateOperationsInput | string | null
+    doctorAvailability?: BoolFieldUpdateOperationsInput | boolean
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     subscription?: SubscriptionUpdateManyWithoutUserNestedInput
@@ -8289,6 +8329,7 @@ export namespace Prisma {
     doctorSpecialization?: NullableStringFieldUpdateOperationsInput | string | null
     doctorLicenseNo?: NullableStringFieldUpdateOperationsInput | string | null
     doctorHospital?: NullableStringFieldUpdateOperationsInput | string | null
+    doctorAvailability?: BoolFieldUpdateOperationsInput | boolean
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     subscription?: SubscriptionUncheckedUpdateManyWithoutUserNestedInput
@@ -8312,6 +8353,7 @@ export namespace Prisma {
     doctorSpecialization?: string | null
     doctorLicenseNo?: string | null
     doctorHospital?: string | null
+    doctorAvailability?: boolean
     createdAt?: Date | string
     updatedAt?: Date | string
     symptoms?: SymptomCreateNestedManyWithoutPatientInput
@@ -8335,6 +8377,7 @@ export namespace Prisma {
     doctorSpecialization?: string | null
     doctorLicenseNo?: string | null
     doctorHospital?: string | null
+    doctorAvailability?: boolean
     createdAt?: Date | string
     updatedAt?: Date | string
     symptoms?: SymptomUncheckedCreateNestedManyWithoutPatientInput
@@ -8374,6 +8417,7 @@ export namespace Prisma {
     doctorSpecialization?: NullableStringFieldUpdateOperationsInput | string | null
     doctorLicenseNo?: NullableStringFieldUpdateOperationsInput | string | null
     doctorHospital?: NullableStringFieldUpdateOperationsInput | string | null
+    doctorAvailability?: BoolFieldUpdateOperationsInput | boolean
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     symptoms?: SymptomUpdateManyWithoutPatientNestedInput
@@ -8397,6 +8441,7 @@ export namespace Prisma {
     doctorSpecialization?: NullableStringFieldUpdateOperationsInput | string | null
     doctorLicenseNo?: NullableStringFieldUpdateOperationsInput | string | null
     doctorHospital?: NullableStringFieldUpdateOperationsInput | string | null
+    doctorAvailability?: BoolFieldUpdateOperationsInput | boolean
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     symptoms?: SymptomUncheckedUpdateManyWithoutPatientNestedInput

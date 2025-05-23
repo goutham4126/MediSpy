@@ -136,6 +136,7 @@ exports.Prisma.UserScalarFieldEnum = {
   doctorSpecialization: 'doctorSpecialization',
   doctorLicenseNo: 'doctorLicenseNo',
   doctorHospital: 'doctorHospital',
+  doctorAvailability: 'doctorAvailability',
   createdAt: 'createdAt',
   updatedAt: 'updatedAt'
 };

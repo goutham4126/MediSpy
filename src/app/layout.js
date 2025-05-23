@@ -14,6 +14,7 @@ import { Toaster } from "react-hot-toast";
 import Location from "@/components/Location";
 import AppSidebar from "@/components/Sidebar/app-sidebar";
 import Chatbot from "@/components/Chatbot";
+import { checkUser } from "@/lib/auth";
 
 
 const geistSans = Geist({
@@ -31,7 +32,8 @@ export const metadata = {
   description: "next app",
 };
 
-export default function RootLayout({ children }) {
+export default async function RootLayout({ children }) {
+  const user=await checkUser();
   return (
     <ClerkProvider>
       <html lang="en">
@@ -44,8 +46,13 @@ export default function RootLayout({ children }) {
                   <div className="flex items-center justify-between gap-2 px-4 w-full">
                     <SidebarTrigger className="-ml-1" />
                     <div className="flex items-center gap-8 text-blue-700">
-                      <Chatbot/>
-                      <Location/>
+                      {
+                        user?.role!=="ADMIN" &&
+                        <>
+                         <Chatbot/>
+                         <Location/>
+                        </>
+                      }
                     </div>
                   </div>
                 </header>

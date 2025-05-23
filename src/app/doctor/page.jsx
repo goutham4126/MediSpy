@@ -1,4 +1,4 @@
-import getAllDoctors from "@/actions/getAllDoctors"
+import getAvailableDoctors from "@/actions/getAvailableDoctors"
 import {
   Card,
   CardHeader,
@@ -10,7 +10,7 @@ import Link from "next/link"
 import { Separator } from "@/components/ui/separator"
 import { FaRegAddressBook } from "react-icons/fa";
 import getDoctorConsultations from "@/actions/getDoctorConsultations"
-
+import { UpdateStatusSelect } from "@/components/UpdateStatusSelect";
 import {
   Table,
   TableBody,
@@ -21,10 +21,8 @@ import {
 } from "@/components/ui/table"
 import {
   Dialog,
-  DialogClose,
   DialogContent,
   DialogDescription,
-  DialogFooter,
   DialogHeader,
   DialogTitle,
   DialogTrigger,
@@ -37,9 +35,8 @@ import { VideoUrl } from "@/components/VideoUrl";
 
 async function page() {
   const user = await checkUser();
-  const doctors = await getAllDoctors();
+  const doctors = await getAvailableDoctors();
   const doctorConsultations = await getDoctorConsultations()
-
 
   return (
     <div className="space-y-8 p-2">
@@ -49,7 +46,13 @@ async function page() {
           Browse and connect with our specialist doctors
         </p>
       </div>
-      
+      {
+        doctors.length===0 && (
+          <div className="flex flex-col items-center justify-center">
+            <h1 className="text-xl font-bold text-gray-900">No Doctors Available</h1>
+          </div>
+        )
+      }
       <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
         {doctors.map((doctor) => (
           <Link key={doctor.id} href={`/doctor/${doctor.id}`}>
@@ -73,7 +76,7 @@ async function page() {
                     {doctor.doctorExperience} years experience
                   </span>
                   <span className="px-2 py-1 bg-blue-50 text-blue-600 rounded-full text-xs font-medium">
-                    Available
+                    {doctor.doctorAvailability ? "Available" : "Unavailable"}
                   </span>
                 </div>
               </CardContent>
@@ -113,8 +116,11 @@ async function page() {
                 <TableHead className="font-medium text-gray-700 border-r border-gray-200 px-4 py-3">
                   Video url
                 </TableHead>
-                <TableHead className="font-medium text-gray-700 text-right px-4 py-3">
+                <TableHead className="font-medium text-gray-700 border-r border-gray-200 px-4 py-3">
                   Status
+                </TableHead>
+                <TableHead className="font-medium text-gray-700 px-4 py-3">
+                  Actions
                 </TableHead>
               </TableRow>
             </TableHeader>
@@ -175,17 +181,17 @@ async function page() {
                       </DialogContent>
                     </Dialog>
                   </TableCell>
-                  <TableCell className="text-right px-4 py-3">
-                    <span className={`inline-flex items-center px-3 py-1 rounded-full text-xs font-medium ${
-                      consultation.status === 'PENDING' 
-                        ? 'bg-yellow-100 text-yellow-800' 
-                        : consultation.status === 'COMPLETED' 
-                          ? 'bg-green-100 text-green-800' 
-                          : 'bg-gray-100 text-gray-800'
-                    }`}>
-                      {consultation.status}
-                    </span>
+                  <TableCell className="border-r border-gray-200 px-4 py-3">
+                    {consultation.status}
                   </TableCell>
+                  <TableCell className="text-right">
+                    <UpdateStatusSelect
+                      consultationId={consultation.id}
+                      initialStatus={consultation.status}
+                    />
+                  </TableCell>
+
+
                 </TableRow>
               ))}
             </TableBody>

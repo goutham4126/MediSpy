@@ -11,6 +11,10 @@ async function getPatientConsultations() {
     try {
         const response = await db.consultation.findMany({
             where: { patientId: user.id },
+            include: {
+                doctor: true,
+            },
+            orderBy: { date: "desc" },
         });
         return response;
     } catch (error) {

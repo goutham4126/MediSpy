@@ -1,6 +1,5 @@
 "use client";
-
-import { Areachart } from "@/components/charts/Areachart";
+import { Component } from "../charts/BarChart";
 import {
   Card,
   CardContent,
@@ -33,8 +32,33 @@ export default function PatientDashboard({doctors, consultations}) {
               </CardDescription>
             </CardHeader>
             <CardContent>
-              <p className="text-lg font-bold text-red-600">Normal</p>
+              {(() => {
+                const risk = Number(consultations[0]?.riskFactor);
+                let label = "Normal";
+                let color = "bg-green-100 text-green-800";
+
+                if (risk > 70) {
+                  label = "High";
+                  color = "bg-red-700 text-white";
+                } else if (risk > 50) {
+                  label = "Severe";
+                  color = "bg-yellow-500 text-white";
+                } else if (risk < 30) {
+                  label = "Low";
+                  color = "bg-green-100 text-green-800";
+                } else {
+                  label = "Normal";
+                  color = "bg-blue-100 text-blue-800";
+                }
+
+                return (
+                  <span className={`inline-block px-5 py-1 rounded-full font-bold text-base ${color}`}>
+                    {label}
+                  </span>
+                );
+              })()}
             </CardContent>
+
           </Card>
           <Card className="w-full md:w-1/3">
             <CardHeader>
@@ -49,7 +73,7 @@ export default function PatientDashboard({doctors, consultations}) {
           </Card>
         </div>
         <div className="my-4">
-          <Areachart/>
+          <Component consultations={consultations} />
         </div>
     </div>
   );

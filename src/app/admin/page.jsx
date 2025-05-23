@@ -7,14 +7,6 @@ import {
   CardContent,
 } from "@/components/ui/card"
 import Link from "next/link"
-import {
-  Table,
-  TableBody,
-  TableCell,
-  TableHead,
-  TableHeader,
-  TableRow,
-} from "@/components/ui/table"
 
 
 async function page() {
@@ -52,7 +44,7 @@ async function page() {
                     {doctor.doctorExperience} years experience
                   </span>
                   <span className="px-2 py-1 bg-blue-50 text-blue-600 rounded-full text-xs font-medium">
-                    Available
+                    {doctor.doctorAvailability ? "Available" : "Unavailable"}
                   </span>
                 </div>
               </CardContent>

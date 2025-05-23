@@ -1,4 +1,4 @@
-import getAllDoctors from "@/actions/getAllDoctors"
+import getAvailableDoctors from "@/actions/getAvailableDoctors"
 import {
   Card,
   CardHeader,
@@ -38,7 +38,7 @@ import CopyText from "@/components/CopyText";
 
 async function page() {
   const user = await checkUser();
-  const doctors = await getAllDoctors()
+  const doctors = await getAvailableDoctors()
   const patientConsultations = await getPatientConsultations()
 
   return (
@@ -49,6 +49,13 @@ async function page() {
           Browse and connect with our specialist doctors
         </p>
       </div>
+      {
+        doctors.length===0 && (
+          <div className="flex flex-col items-center justify-center">
+            <h1 className="text-xl font-bold text-gray-900">No Doctors Available</h1>
+          </div>
+        )
+      }
       
       <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
         {doctors.map((doctor) => (
@@ -73,7 +80,7 @@ async function page() {
                     {doctor.doctorExperience} years experience
                   </span>
                   <span className="px-2 py-1 bg-blue-50 text-blue-600 rounded-full text-xs font-medium">
-                    Available
+                    {doctor.doctorAvailability ? "Available" : "Unavailable"}
                   </span>
                 </div>
               </CardContent>
@@ -123,7 +130,7 @@ async function page() {
                   className="border-t border-gray-200 hover:bg-gray-50"
                 >
                   <TableCell className="font-medium border-r border-gray-200 px-4 py-3">
-                    {consultation.doctorId}
+                    {consultation.doctor.name}
                   </TableCell>
                   <TableCell className="border-r border-gray-200 px-4 py-3">
                     {consultation.date.toLocaleDateString("en-US", {

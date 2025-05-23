@@ -30,6 +30,7 @@ model User {
   doctorSpecialization String?
   doctorLicenseNo      String?
   doctorHospital       String?
+  doctorAvailability   Boolean        @default(false)
   symptoms             Symptom[]      @relation("patientSymptoms")
   subscription         Subscription[] @relation("subscriptions")
   createdAt            DateTime       @default(now())
