@@ -15,10 +15,10 @@ import {
             <div className="w-10 h-10 bg-blue-600 text-white flex items-center justify-center rounded-full">
               <FaUserDoctor/>
             </div>
-            <span className="ml-3 text-xl">HealHub</span>
+            <span className="ml-3 text-xl">MediSpy</span>
           </a>
           <p className="text-sm text-gray-500 sm:ml-4 sm:pl-4 sm:border-l-2 sm:border-gray-200 sm:py-2 sm:mt-0 mt-4">
-            © 2025 HealHub —
+            © 2025 MediSpy —
             <a
               href="https://twitter.com/knyttneve"
               className="text-gray-600 ml-1"

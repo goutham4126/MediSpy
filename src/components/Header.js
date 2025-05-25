@@ -14,7 +14,7 @@ const Header = () => {
               <div className="w-10 h-10 bg-blue-600 text-white flex items-center justify-center rounded-full">
                 <FaUserDoctor/>
               </div>
-              <span className="ml-3 text-xl">HealHub</span>
+              <span className="ml-3 text-xl">MediSpy</span>
             </a>
           </div>
           <div>
