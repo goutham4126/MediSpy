@@ -5,7 +5,7 @@ async function page() {
   return (
     <div className="w-full h-screen">
       {
-        user?.role === "doctor" ? (
+        user?.role === "DOCTOR" ? (
           <iframe
             src="https://healcare-videochat.vercel.app/create"
             width="100%"

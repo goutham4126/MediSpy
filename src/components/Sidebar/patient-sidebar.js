@@ -34,10 +34,10 @@ const data = {
           title: "Appointments",
           url: "/patient",
         },
-        {
-          title: "Video Consultation",
-          url: "/video-consultation",
-        },
+        // {
+        //   title: "Video Consultation",
+        //   url: "/video-consultation",
+        // },
       ],
     },
     {
