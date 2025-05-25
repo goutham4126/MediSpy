@@ -30,9 +30,13 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata = {
-  title: "App",
-  description: "next app",
+  title: "MediSpy",
+  description: "AI-powered symptom to disease finder",
+  icons: {
+    icon: "/logo.png",
+  },
 };
+
 
 export default async function RootLayout({ children }) {
   const user=await checkUser();
