@@ -51,6 +51,22 @@ const data = {
         },
       ],
     },
+
+    {
+      title: "Food & Nutrition",
+      icon: SquareTerminal,
+      isActive: true,
+      items: [
+        {
+          title: "Diet Plans",
+          url: "/diet-plan",
+        },
+        {
+          title: "Excercise Plans",
+          url: "/exercise",
+        }
+      ],
+    },
   ],
   billing:
   {
